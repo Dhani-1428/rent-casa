@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>RentCasaPT - Your Trusted Real Estate Partner in Portugal</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="real estate, portugal properties, buy house portugal, rent apartment portugal" name="keywords">
+    <meta content="Find your perfect home in Portugal. RentCasaPT offers premium properties for sale and rent across Portugal's most desirable locations." name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Font Awesome for WhatsApp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <style>
+        /* Appointment Modal Styles */
+        .appointment-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+        
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #333;
+            z-index: 1;
+        }
+        
+        .close-modal:hover {
+            color: #0066ff;
+        }
+        
+        /* Property Filter Styles */
+        .property-item {
+            transition: transform 0.3s ease;
+        }
+        
+        .property-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-contact {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s;
+        }
+        
+        .whatsapp-contact:hover {
+            background-color: #128C7E;
+            color: white;
+        }
+        
+        /* Phone Button - FIXED WITH ICON ON RIGHT */
+        .phone-reveal {
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-direction: row-reverse; /* This reverses the icon position */
+        }
+        
+        .phone-number {
+            display: none;
+            font-weight: bold;
+            color: #0066ff;
+            margin-top: 5px;
+            text-align: center;
+        }
+        
+        /* Active Filter */
+        .filter-active {
+            background-color: #0066ff !important;
+            color: white !important;
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 100px; /* Position above scroll-up button */
+            right: 20px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* Scroll Up Button Adjustment */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+        }
+        
+        /* Modal form scrolling fix */
+        .modal-scroll-fix {
+            max-height: 80vh;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        
+        /* Custom scrollbar for modal */
+        .modal-scroll-fix::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .modal-scroll-fix::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .modal-scroll-fix::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        
+        .modal-scroll-fix::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        /* Button Container for precise alignment */
+        .cta-buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        /* Specific button styles for CTA section */
+        .cta-phone-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row-reverse; /* Icon on right */
+            gap: 8px;
+        }
+        
+        .cta-appointment-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Phone reveal container for CTA */
+        .cta-phone-container {
+            display: inline-block;
+            text-align: center;
+        }
+        
+        /* Header buttons alignment */
+        .header-buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .header-phone-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row-reverse; /* Icon on right */
+            gap: 8px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .cta-buttons-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .cta-buttons-container button {
+                width: 100%;
+            }
+            
+            .header-buttons-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .header-buttons-container button,
+            .header-buttons-container a {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid bg-white p-0">
+        <!-- WhatsApp Floating Button -->
+        <div class="whatsapp-float" onclick="window.open('https://wa.me/351920326572?text=Hello%20RentCasaPT,%20I%20am%20interested%20in%20your%20properties', '_blank')">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Appointment Modal -->
+        <div id="appointmentModal" class="appointment-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-scroll-fix">
+                    <h3 class="mb-4">Schedule an Appointment</h3>
+                    <form id="appointmentForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Preferred Date *</label>
+                            <input type="date" class="form-control" id="date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Preferred Time *</label>
+                            <select class="form-control" id="time" required>
+                                <option value="">Select a time</option>
+                                <option value="09:00">09:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="14:00">02:00 PM</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="16:00">04:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="property" class="form-label">Property Interest (Optional)</label>
+                            <input type="text" class="form-control" id="property" placeholder="Property ID or Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Additional Notes</label>
+                            <textarea class="form-control" id="message" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Schedule Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Start -->
+        <div class="container-fluid nav-bar bg-transparent">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+                <a href="index.html" class="navbar-brand d-flex align-items-center text-center">
+                    <div class="icon p-2 me-2">
+                        <img class="img-fluid" src="img/icon-deal.png" alt="Icon" style="width: 30px; height: 30px;">
+                    </div>
+                    <h1 class="m-0 text-primary">RentCasaPT</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="services.html" class="nav-item nav-link">Our Services</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a href="property-list.html" class="dropdown-item">Property List</a>
+                                <a href="property-type.html" class="dropdown-item">Property Type</a>
+                                <a href="property-agent.html" class="dropdown-item">Property Agent</a>
+                            </div>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Portfolio</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a href="testimonial.html" class="dropdown-item">Testimonials</a>
+                                <a href="404.html" class="dropdown-item">404 Error</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                    <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Add Property</a>
+                </div>
+            </nav>
+        </div>
+        <!-- Navbar End -->
+
+        <!-- Header Start -->
+        <div class="container-fluid header bg-white p-0">
+            <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+                <div class="col-md-6 p-5 mt-lg-5">
+                    <h1 class="display-5 animated fadeIn mb-4">Find Your <span class="text-primary">Dream Home</span> in Beautiful Portugal</h1>
+                    <p class="animated fadeIn mb-4 pb-2">Discover premium properties across Portugal's most sought-after locations. From sunny Algarve villas to Lisbon's modern apartments, we help you find the perfect place to call home.</p>
+                    <div class="header-buttons-container">
+                        <a href="" class="btn btn-primary py-3 px-5 animated fadeIn">Browse Properties</a>
+                        <div class="cta-phone-container">
+                            <button class="btn btn-outline-primary py-3 px-5 animated fadeIn header-phone-btn" id="headerPhoneBtn">
+                                Call Now<i class="fa fa-phone-alt ms-2"></i>
+                            </button>
+                            <div class="phone-number" id="headerPhoneNumber">+351 920326572</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 animated fadeIn">
+                    <div class="owl-carousel header-carousel">
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="img/carousel-1.jpg" alt="Luxury Villa in Algarve">
+                        </div>
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="img/carousel-2.jpg" alt="Modern Apartment in Lisbon">
+                        </div>
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="img/carousel-3.jpg" alt="Traditional House in Porto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+
+        <!-- Search Start -->
+        <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+            <div class="container">
+                <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control border-0 py-3" id="searchKeyword" placeholder="Search by location or keyword">
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select border-0 py-3" id="propertyType">
+                                    <option value="">All Property Types</option>
+                                    <option value="apartment">Apartments (T0–T4+)</option>
+                                    <option value="villa">Houses & Villas</option>
+                                    <option value="commercial">Commercial & Mixed-Use</option>
+                                    <option value="room">Rooms</option>
+                                    <option value="holiday">Holiday / Alojamento Local</option>
+                                    <option value="land">Land & Plots</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select border-0 py-3" id="location">
+                                    <option value="">All Locations</option>
+                                    <option value="lisbon">Lisbon</option>
+                                    <option value="porto">Porto</option>
+                                    <option value="algarve">Algarve</option>
+                                    <option value="madeira">Madeira</option>
+                                    <option value="coimbra">Coimbra</option>
+                                    <option value="braga">Braga</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-dark border-0 w-100 py-3" id="searchBtn">Search</button>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="d-flex flex-wrap gap-2" id="priceFilter">
+                            <span class="badge bg-light text-dark py-2 px-3 filter-option" data-price="all">All Prices</span>
+                            <span class="badge bg-light text-dark py-2 px-3 filter-option" data-price="under200k">Under €200,000</span>
+                            <span class="badge bg-light text-dark py-2 px-3 filter-option" data-price="200k-500k">€200K - €500K</span>
+                            <span class="badge bg-light text-dark py-2 px-3 filter-option" data-price="500k-1m">€500K - €1M</span>
+                            <span class="badge bg-light text-dark py-2 px-3 filter-option" data-price="over1m">Over €1M</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Search End -->
+
+        <!-- Category Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Explore Property Types</h1>
+                    <p>Discover the perfect property type that matches your lifestyle. From cozy apartments to luxurious villas, we have options for every preference and budget.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="property-type.html?type=apartment">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="img/icon-apartment.png" alt="Apartment Icon">
+                                </div>
+                                <h6>Apartments</h6>
+                                <span>245 Properties</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="property-type.html?type=villa">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="img/icon-villa.png" alt="Villa Icon">
+                                </div>
+                                <h6>Villas</h6>
+                                <span>89 Properties</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="property-type.html?type=house">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="img/icon-house.png" alt="House Icon">
+                                </div>
+                                <h6>Family Homes</h6>
+                                <span>167 Properties</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="property-type.html?type=commercial">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="img/icon-housing.png" alt="Commercial Icon">
+                                </div>
+                                <h6>Commercial</h6>
+                                <span>42 Properties</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="property-type.html?type=building">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="img/icon-building.png" alt="Building Icon">
+                                </div>
+                                <h6>Buildings</h6>
+                                <span>18 Properties</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="property-type.html?type=townhouse">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="img/icon-neighborhood.png" alt="Townhouse Icon">
+                                </div>
+                                <h6>Townhouses</h6>
+                                <span>76 Properties</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="property-type.html?type=shop">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="img/icon-condominium.png" alt="Shop Icon">
+                                </div>
+                                <h6>Retail Spaces</h6>
+                                <span>31 Properties</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="property-type.html?type=land">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="img/icon-luxury.png" alt="Land Icon">
+                                </div>
+                                <h6>Land & Plots</h6>
+                                <span>54 Properties</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Category End -->
+
+        <!-- About Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                            <img class="img-fluid w-100" src="img/about.jpg" alt="RentCasaPT Team">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <h1 class="mb-4">Your Trusted Real Estate Partner in Portugal</h1>
+                        <p class="mb-4">With over 15 years of experience in the Portuguese real estate market, RentCasaPT has helped thousands of families and investors find their perfect property. Our deep local knowledge and international expertise make us the ideal partner for your property journey.</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Personalized property search tailored to your needs</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Expert legal and financial guidance</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Multilingual team serving international clients</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Comprehensive after-sales support</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Market insights and investment advice</p>
+                        <a class="btn btn-primary py-3 px-5 mt-3" href="about.html">Learn More About Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+        <!-- Property List Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-0 gx-5 align-items-end">
+                    <div class="col-lg-6">
+                        <div class="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
+                            <h1 class="mb-3">Featured Properties</h1>
+                            <p>Browse our selection of premium properties. Each listing has been carefully curated to ensure quality and value for our clients.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
+                        <ul class="nav nav-pills d-inline-flex justify-content-end mb-5" id="propertyTabs">
+                            <li class="nav-item me-2">
+                                <a class="btn btn-outline-primary active filter-tab" data-bs-toggle="pill" href="#tab-1" data-filter="featured">Featured</a>
+                            </li>
+                            <li class="nav-item me-2">
+                                <a class="btn btn-outline-primary filter-tab" data-bs-toggle="pill" href="#tab-2" data-filter="sell">For Sale</a>
+                            </li>
+                            <li class="nav-item me-0">
+                                <a class="btn btn-outline-primary filter-tab" data-bs-toggle="pill" href="#tab-3" data-filter="rent">For Rent</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane fade show p-0 active">
+                        <div class="row g-4" id="propertyContainer">
+                            <!-- Properties will be dynamically loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Property List End -->
+
+        <!-- Call to Action Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="bg-light rounded p-3">
+                    <div class="bg-white rounded p-4" style="border: 1px dashed rgba(6, 78, 59, .35)">
+                        <div class="row g-5 align-items-center">
+                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                                <img class="img-fluid rounded w-100" src="img/call-to-action.jpg" alt="Contact Our Agent">
+                            </div>
+                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                                <div class="mb-4">
+                                    <h1 class="mb-3">Contact Our Certified Agent Today</h1>
+                                    <p>Our experienced real estate agents are ready to help you find your dream property. Get personalized advice and expert guidance throughout your property search journey.</p>
+                                </div>
+                                
+                                <!-- UPDATED BUTTONS IN ONE LINE -->
+                                <div class="cta-buttons-container">
+                                    <!-- Make A Call Button -->
+                                    <div class="cta-phone-container">
+                                        <button class="btn btn-primary py-3 px-4 cta-phone-btn" id="ctaPhoneBtn">
+                                            Make A Call<i class="fa fa-phone-alt ms-2"></i>
+                                        </button>
+                                        <div class="phone-number" id="ctaPhoneNumber">+351 920326572</div>
+                                    </div>
+                                    
+                                    <!-- Get Appointment Button -->
+                                    <button class="btn btn-dark py-3 px-4 cta-appointment-btn" id="appointmentBtn">
+                                        <i class="fa fa-calendar-alt me-2"></i>Get Appointment
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Call to Action End -->
+
+        <!-- Team Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Meet Our Expert Agents</h1>
+                    <p>Our team of certified real estate professionals brings extensive market knowledge and personalized service to help you find the perfect property.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item rounded overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="img/team-1.jpg" alt="Ana Silva - Senior Agent">
+                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                                    <a class="btn btn-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn btn-square mx-1" href="#"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center p-4 mt-3">
+                                <h5 class="fw-bold mb-0">Ana Silva</h5>
+                                <small>Senior Real Estate Agent</small>
+                                <p class="text-muted small mt-2">Specializes in Lisbon properties</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item rounded overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="img/team-2.jpg" alt="Carlos Mendes - Luxury Specialist">
+                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                                    <a class="btn btn-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn btn-square mx-1" href="#"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center p-4 mt-3">
+                                <h5 class="fw-bold mb-0">Carlos Mendes</h5>
+                                <small>Luxury Properties Specialist</small>
+                                <p class="text-muted small mt-2">Expert in Algarve villas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="team-item rounded overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="img/team-3.jpg" alt="Mariana Costa - International Clients">
+                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                                    <a class="btn btn-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn btn-square mx-1" href="#"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center p-4 mt-3">
+                                <h5 class="fw-bold mb-0">Mariana Costa</h5>
+                                <small>International Client Manager</small>
+                                <p class="text-muted small mt-2">Fluent in English & French</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="team-item rounded overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="img/team-4.jpg" alt="João Santos - Commercial Expert">
+                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                                    <a class="btn btn-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn btn-square mx-1" href="#"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center p-4 mt-3">
+                                <h5 class="fw-bold mb-0">João Santos</h5>
+                                <small>Commercial Properties Expert</small>
+                                <p class="text-muted small mt-2">Porto market specialist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+
+        <!-- Testimonial Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">What Our Clients Say</h1>
+                    <p>Don't just take our word for it. Read what our satisfied clients have to say about their experience with RentCasaPT.</p>
+                </div>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="testimonial-item bg-light rounded p-3">
+                        <div class="bg-white border rounded p-4">
+                            <p>"RentCasaPT made our move to Portugal seamless. Ana helped us find the perfect family home in Lisbon within our budget. Their support with paperwork and legal requirements was invaluable."</p>
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg" style="width: 45px; height: 45px;" alt="Sarah Johnson">
+                                <div class="ps-3">
+                                    <h6 class="fw-bold mb-1">Sarah Johnson</h6>
+                                    <small>Family from UK, Lisbon Homeowner</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-3">
+                        <div class="bg-white border rounded p-4">
+                            <p>"As an investor, I needed reliable local expertise. Carlos found me three excellent properties in Algarve that have shown great returns. The team's market knowledge is outstanding."</p>
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg" style="width: 45px; height: 45px;" alt="Michael Chen">
+                                <div class="ps-3">
+                                    <h6 class="fw-bold mb-1">Michael Chen</h6>
+                                    <small>International Investor</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-3">
+                        <div class="bg-white border rounded p-4">
+                            <p>"Mariana's multilingual support was crucial for us as French speakers. She understood exactly what we were looking for and found our dream villa in Porto. Highly recommended!"</p>
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg" style="width: 45px; height: 45px;" alt="Sophie Laurent">
+                                <div class="ps-3">
+                                    <h6 class="fw-bold mb-1">Sophie Laurent</h6>
+                                    <small>Porto Villa Owner from France</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Contact Us</h5>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Avenida da Liberdade 245, Lisbon, Portugal</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+351 920326572</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@rentcasapt.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" onclick="window.open('https://wa.me/351920326572', '_blank')">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Quick Links</h5>
+                        <a class="btn btn-link text-white-50" href="index.html">Home</a>
+                        <a class="btn btn-link text-white-50" href="about.html">About Us</a>
+                        <a class="btn btn-link text-white-50" href="services.html">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="property-list.html">Property Listings</a>
+                        <a class="btn btn-link text-white-50" href="contact.html">Contact Us</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Property Gallery</h5>
+                        <div class="row g-2 pt-2">
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-1.jpg" alt="Property 1">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-2.jpg" alt="Property 2">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-3.jpg" alt="Property 3">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-4.jpg" alt="Property 4">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-5.jpg" alt="Property 5">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-6.jpg" alt="Property 6">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Newsletter</h5>
+                        <p>Subscribe to receive property updates and market insights in Portugal.</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="email" placeholder="Your email" id="newsletterEmail">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" id="subscribeBtn">Subscribe</button>
+                        </div>
+                        <div class="mt-3">
+                            <small class="text-white-50">By subscribing, you agree to our Privacy Policy</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="index.html">RentCasaPT</a>, All Rights Reserved. 
+                            <br>AMI: 12345 | Licensed Real Estate Agency
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="privacy.html" class="text-white-50 me-3">Privacy Policy</a>
+                                <a href="terms.html" class="text-white-50">Terms & Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Sample property data
+        const properties = [
+            {
+                id: 1,
+                title: "Modern Luxury Apartment in Lisbon",
+                price: 450000,
+                type: "apartment",
+                location: "lisbon",
+                status: "sell",
+                featured: true,
+                image: "img/property-1.jpg",
+                description: "Stunning 3-bedroom apartment with panoramic city views",
+                details: {
+                    sqft: 1200,
+                    beds: 3,
+                    baths: 2
+                }
+            },
+            {
+                id: 2,
+                title: "Beachfront Villa in Algarve",
+                price: 850000,
+                type: "villa",
+                location: "algarve",
+                status: "sell",
+                featured: true,
+                image: "img/property-2.jpg",
+                description: "Luxury 4-bedroom villa with private pool and sea views",
+                details: {
+                    sqft: 2800,
+                    beds: 4,
+                    baths: 3
+                }
+            },
+            {
+                id: 3,
+                title: "City Center Office Space",
+                price: 320000,
+                type: "commercial",
+                location: "porto",
+                status: "sell",
+                featured: true,
+                image: "img/property-3.jpg",
+                description: "Prime commercial space in Porto's business district",
+                details: {
+                    sqft: 1800,
+                    beds: 0,
+                    baths: 2
+                }
+            },
+            {
+                id: 4,
+                title: "Monthly Rental Apartment",
+                price: 1200,
+                type: "apartment",
+                location: "lisbon",
+                status: "rent",
+                featured: true,
+                image: "img/property-4.jpg",
+                description: "Fully furnished 2-bedroom apartment in prime location",
+                details: {
+                    sqft: 950,
+                    beds: 2,
+                    baths: 1
+                }
+            },
+            {
+                id: 5,
+                title: "Traditional Townhouse",
+                price: 275000,
+                type: "townhouse",
+                location: "coimbra",
+                status: "sell",
+                featured: true,
+                image: "img/property-5.jpg",
+                description: "Charming renovated townhouse in historic center",
+                details: {
+                    sqft: 1600,
+                    beds: 3,
+                    baths: 2
+                }
+            },
+            {
+                id: 6,
+                title: "Luxury Penthouse",
+                price: 1250000,
+                type: "apartment",
+                location: "lisbon",
+                status: "sell",
+                featured: true,
+                image: "img/property-6.jpg",
+                description: "Exclusive penthouse with private terrace and pool",
+                details: {
+                    sqft: 3200,
+                    beds: 4,
+                    baths: 3
+                }
+            }
+        ];
+
+        // DOM Elements
+        const modal = document.getElementById('appointmentModal');
+        const appointmentBtn = document.getElementById('appointmentBtn');
+        const closeModal = document.querySelector('.close-modal');
+        const appointmentForm = document.getElementById('appointmentForm');
+        const propertyContainer = document.getElementById('propertyContainer');
+        const searchBtn = document.getElementById('searchBtn');
+        const searchKeyword = document.getElementById('searchKeyword');
+        const propertyType = document.getElementById('propertyType');
+        const locationFilter = document.getElementById('location');
+        const filterOptions = document.querySelectorAll('.filter-option');
+        const filterTabs = document.querySelectorAll('.filter-tab');
+
+        // Phone buttons
+        const headerPhoneBtn = document.getElementById('headerPhoneBtn');
+        const ctaPhoneBtn = document.getElementById('ctaPhoneBtn');
+
+        // Current filter state
+        let currentFilters = {
+            keyword: '',
+            type: '',
+            location: '',
+            price: 'all',
+            status: 'featured'
+        };
+
+        // Initialize properties
+        function initializeProperties() {
+            renderProperties(properties.filter(p => p.featured));
+        }
+
+        // Render properties
+        function renderProperties(filteredProperties) {
+            propertyContainer.innerHTML = '';
+            
+            if (filteredProperties.length === 0) {
+                propertyContainer.innerHTML = `
+                    <div class="col-12 text-center">
+                        <div class="alert alert-info">
+                            <h4>No properties found</h4>
+                            <p>Try adjusting your search criteria</p>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
+            filteredProperties.forEach(property => {
+                const propertyElement = createPropertyElement(property);
+                propertyContainer.appendChild(propertyElement);
+            });
+            
+            // Add browse more button
+            const browseMore = document.createElement('div');
+            browseMore.className = 'col-12 text-center wow fadeInUp';
+            browseMore.setAttribute('data-wow-delay', '0.1s');
+            browseMore.innerHTML = `
+                <a class="btn btn-primary py-3 px-5" href="property-list.html">Browse More Properties</a>
+            `;
+            propertyContainer.appendChild(browseMore);
+        }
+
+        // Create property element
+        function createPropertyElement(property) {
+            const div = document.createElement('div');
+            div.className = 'col-lg-4 col-md-6 wow fadeInUp';
+            div.setAttribute('data-wow-delay', '0.1s');
+            
+            const priceType = property.status === 'rent' ? 'month' : '';
+            const statusText = property.status === 'rent' ? 'For Rent' : 'For Sale';
+            const typeText = property.type.charAt(0).toUpperCase() + property.type.slice(1);
+            
+            div.innerHTML = `
+                <div class="property-item rounded overflow-hidden">
+                    <div class="position-relative overflow-hidden">
+                        <a href="property-detail.html?id=${property.id}">
+                            <img class="img-fluid" src="${property.image}" alt="${property.title}">
+                        </a>
+                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                            ${statusText}
+                        </div>
+                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                            ${typeText}
+                        </div>
+                    </div>
+                    <div class="p-4 pb-0">
+                        <h5 class="text-primary mb-3">
+                            ${property.status === 'rent' ? '€' + property.price + '/month' : '€' + property.price.toLocaleString()}
+                        </h5>
+                        <a class="d-block h5 mb-2" href="property-detail.html?id=${property.id}">
+                            ${property.title}
+                        </a>
+                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>
+                            ${property.location.charAt(0).toUpperCase() + property.location.slice(1)}, Portugal
+                        </p>
+                        <p class="text-muted small">${property.description}</p>
+                    </div>
+                    <div class="d-flex border-top">
+                        <small class="flex-fill text-center border-end py-2">
+                            <i class="fa fa-ruler-combined text-primary me-2"></i>${property.details.sqft} Sqft
+                        </small>
+                        <small class="flex-fill text-center border-end py-2">
+                            <i class="fa fa-bed text-primary me-2"></i>${property.details.beds} Bed
+                        </small>
+                        <small class="flex-fill text-center py-2">
+                            <i class="fa fa-bath text-primary me-2"></i>${property.details.baths} Bath
+                        </div>
+                </div>
+            `;
+            
+            return div;
+        }
+
+        // Filter properties
+        function filterProperties() {
+            let filtered = [...properties];
+            
+            // Filter by status
+            if (currentFilters.status !== 'featured') {
+                filtered = filtered.filter(p => p.status === currentFilters.status);
+            }
+            
+            // Filter by keyword
+            if (currentFilters.keyword) {
+                const keyword = currentFilters.keyword.toLowerCase();
+                filtered = filtered.filter(p => 
+                    p.title.toLowerCase().includes(keyword) || 
+                    p.description.toLowerCase().includes(keyword) ||
+                    p.location.toLowerCase().includes(keyword)
+                );
+            }
+            
+            // Filter by type
+            if (currentFilters.type) {
+                filtered = filtered.filter(p => p.type === currentFilters.type);
+            }
+            
+            // Filter by location
+            if (currentFilters.location) {
+                filtered = filtered.filter(p => p.location === currentFilters.location);
+            }
+            
+            // Filter by price
+            if (currentFilters.price !== 'all') {
+                switch(currentFilters.price) {
+                    case 'under200k':
+                        filtered = filtered.filter(p => p.price < 200000);
+                        break;
+                    case '200k-500k':
+                        filtered = filtered.filter(p => p.price >= 200000 && p.price <= 500000);
+                        break;
+                    case '500k-1m':
+                        filtered = filtered.filter(p => p.price > 500000 && p.price <= 1000000);
+                        break;
+                    case 'over1m':
+                        filtered = filtered.filter(p => p.price > 1000000);
+                        break;
+                }
+            }
+            
+            renderProperties(filtered);
+        }
+
+        // Modal functionality
+        appointmentBtn.addEventListener('click', () => {
+            modal.style.display = 'block';
+            // Scroll to top of modal
+            modal.scrollTop = 0;
+            // Prevent body scrolling
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            // Restore body scrolling
+            document.body.style.overflow = 'auto';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                // Restore body scrolling
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        appointmentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! Your appointment request has been submitted. We will contact you shortly to confirm.');
+            modal.style.display = 'none';
+            // Restore body scrolling
+            document.body.style.overflow = 'auto';
+            appointmentForm.reset();
+        });
+
+        // Phone number reveal functionality - UPDATED FOR ICON ON RIGHT
+        function setupPhoneButton(button) {
+            button.addEventListener('click', function() {
+                const phoneNumber = this.parentElement.querySelector('.phone-number');
+                const icon = this.querySelector('i');
+                
+                if (phoneNumber.style.display === 'block') {
+                    phoneNumber.style.display = 'none';
+                    icon.className = 'fa fa-phone-alt ms-2';
+                } else {
+                    phoneNumber.style.display = 'block';
+                    // Change icon to show it's active
+                    icon.className = 'fa fa-phone ms-2';
+                    // Auto-hide after 30 seconds
+                    setTimeout(() => {
+                        phoneNumber.style.display = 'none';
+                        icon.className = 'fa fa-phone-alt ms-2';
+                    }, 30000);
+                }
+            });
+        }
+
+        // Setup phone buttons
+        if (headerPhoneBtn) setupPhoneButton(headerPhoneBtn);
+        if (ctaPhoneBtn) setupPhoneButton(ctaPhoneBtn);
+
+        // Search functionality
+        searchBtn.addEventListener('click', () => {
+            currentFilters.keyword = searchKeyword.value.toLowerCase();
+            currentFilters.type = propertyType.value;
+            currentFilters.location = locationFilter.value;
+            filterProperties();
+        });
+
+        // Price filter functionality
+        filterOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove active class from all options
+                filterOptions.forEach(opt => opt.classList.remove('filter-active'));
+                // Add active class to clicked option
+                this.classList.add('filter-active');
+                // Update filter
+                currentFilters.price = this.getAttribute('data-price');
+                filterProperties();
+            });
+        });
+
+        // Tab filter functionality
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                filterTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                // Update filter
+                currentFilters.status = this.getAttribute('data-filter');
+                filterProperties();
+            });
+        });
+
+        // Enter key support for search
+        searchKeyword.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+
+        // Newsletter subscription
+        document.getElementById('subscribeBtn').addEventListener('click', function() {
+            const email = document.getElementById('newsletterEmail').value;
+            if (email && email.includes('@')) {
+                alert('Thank you for subscribing to our newsletter!');
+                document.getElementById('newsletterEmail').value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeProperties();
+            // Set first price filter as active
+            if (filterOptions.length > 0) {
+                filterOptions[0].classList.add('filter-active');
+            }
+            
+            // Set minimum date to today for appointment form
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').setAttribute('min', today);
+        });
+
+        // WhatsApp floating button click handler
+        document.querySelector('.whatsapp-float').addEventListener('click', function() {
+            window.open('https://wa.me/351920326572?text=Hello%20RentCasaPT,%20I%20am%20interested%20in%20your%20properties', '_blank');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Our Services - RentCasaPT Real Estate</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Font Awesome for WhatsApp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid bg-white p-0">
+        <!-- WhatsApp Floating Button -->
+        <div class="whatsapp-float" onclick="window.open('https://wa.me/351920326572?text=Hello%20RentCasaPT,%20I%20am%20interested%20in%20your%20properties', '_blank')">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar Start -->
+        <div class="container-fluid nav-bar bg-transparent">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+                <a href="index.html" class="navbar-brand d-flex align-items-center text-center">
+                    <div class="icon p-2 me-2">
+                        <img class="img-fluid" src="img/icon-deal.png" alt="Icon" style="width: 30px; height: 30px;">
+                    </div>
+                    <h1 class="m-0 text-primary">RentCasaPT</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="services.html" class="nav-item nav-link active">Our Services</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a href="property-list.html" class="dropdown-item">Property List</a>
+                                <a href="property-type.html" class="dropdown-item">Property Type</a>
+                                <a href="property-agent.html" class="dropdown-item">Property Agent</a>
+                            </div>
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Portfolio</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a href="testimonial.html" class="dropdown-item">Testimonials</a>
+                                <a href="404.html" class="dropdown-item">404 Error</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                    <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Add Property</a>
+                </div>
+            </nav>
+        </div>
+        <!-- Navbar End -->
+
+
+        <!-- Header/Hero Start -->
+        <div class="container-fluid header bg-white p-0">
+            <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+                <div class="col-md-6 p-5 mt-lg-5">
+                    <h1 class="display-5 animated fadeIn mb-4">Our Services</h1> 
+                    <nav aria-label="breadcrumb animated fadeIn">
+                        <ol class="breadcrumb text-uppercase">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-body active" aria-current="page">Services</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-md-6 animated fadeIn">
+                    <img class="img-fluid" src="img/header.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- Header/Hero End -->
+
+
+        <!-- Search Start -->
+        <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+            <div class="container">
+                <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control border-0 py-3" placeholder="Search Keyword">
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select border-0 py-3">
+                                    <option selected>Property Type</option>
+                                    <option>Apartments (T0–T4+)</option>
+                                    <option>Houses &amp; Villas</option>
+                                    <option>Commercial &amp; Mixed-Use</option>
+                                    <option>Rooms</option>
+                                    <option>Holiday / Alojamento Local</option>
+                                    <option>Land &amp; Plots</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select border-0 py-3">
+                                    <option selected>Location</option>
+                                    <option value="1">Location 1</option>
+                                    <option value="2">Location 2</option>
+                                    <option value="3">Location 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-dark border-0 w-100 py-3">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Search End -->
+
+
+        <!-- Services Start (Updated with Cards) -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Comprehensive Real Estate Solutions</h1>
+                    <p>At RentCasaPT, we offer a full spectrum of real estate services tailored to meet your specific needs. From buying and selling to property management, we've got you covered.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item bg-light rounded overflow-hidden">
+                            <div class="position-relative overflow-hidden text-center p-4">
+                                <div class="service-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                                    <i class="fa fa-home text-white fa-2x"></i>
+                                </div>
+                                <h5 class="mb-3">Property Sales</h5>
+                                <p>We help you buy or sell residential and commercial properties with expert guidance throughout the entire process.</p>
+                                <div class="border-top pt-3">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Market valuation</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Professional photography</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Strategic marketing</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Negotiation support</li>
+                                    </ul>
+                                </div>
+                                <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item bg-light rounded overflow-hidden">
+                            <div class="position-relative overflow-hidden text-center p-4">
+                                <div class="service-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                                    <i class="fa fa-key text-white fa-2x"></i>
+                                </div>
+                                <h5 class="mb-3">Property Rental</h5>
+                                <p>Find your perfect rental property or list your property for rent with our comprehensive rental management services.</p>
+                                <div class="border-top pt-3">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Tenant screening</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Lease agreement preparation</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Rent collection</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Property inspections</li>
+                                    </ul>
+                                </div>
+                                <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-item bg-light rounded overflow-hidden">
+                            <div class="position-relative overflow-hidden text-center p-4">
+                                <div class="service-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                                    <i class="fa fa-building text-white fa-2x"></i>
+                                </div>
+                                <h5 class="mb-3">Property Management</h5>
+                                <p>Full-service property management for landlords who want peace of mind and maximum returns on their investment.</p>
+                                <div class="border-top pt-3">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Maintenance coordination</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Financial reporting</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>24/7 emergency support</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Regular property assessments</li>
+                                    </ul>
+                                </div>
+                                <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item bg-light rounded overflow-hidden">
+                            <div class="position-relative overflow-hidden text-center p-4">
+                                <div class="service-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                                    <i class="fa fa-search text-white fa-2x"></i>
+                                </div>
+                                <h5 class="mb-3">Property Valuation</h5>
+                                <p>Accurate property valuation services using market data and advanced analytics to determine the true value of your property.</p>
+                                <div class="border-top pt-3">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Comparative market analysis</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Investment potential assessment</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Detailed valuation reports</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Rental yield calculations</li>
+                                    </ul>
+                                </div>
+                                <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="service-item bg-light rounded overflow-hidden">
+                            <div class="position-relative overflow-hidden text-center p-4">
+                                <div class="service-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                                    <i class="fa fa-file-contract text-white fa-2x"></i>
+                                </div>
+                                <h5 class="mb-3">Legal & Documentation</h5>
+                                <p>Expert assistance with all real estate legal matters and documentation to ensure smooth and compliant transactions.</p>
+                                <div class="border-top pt-3">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Contract preparation</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Title verification</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Legal compliance checks</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Notary services coordination</li>
+                                    </ul>
+                                </div>
+                                <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="service-item bg-light rounded overflow-hidden">
+                            <div class="position-relative overflow-hidden text-center p-4">
+                                <div class="service-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                                    <i class="fa fa-handshake text-white fa-2x"></i>
+                                </div>
+                                <h5 class="mb-3">Consultation & Advisory</h5>
+                                <p>Personalized real estate consultation to help you make informed decisions about buying, selling, or investing.</p>
+                                <div class="border-top pt-3">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Investment strategy development</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Market trend analysis</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Portfolio optimization</li>
+                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Risk assessment</li>
+                                    </ul>
+                                </div>
+                                <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Services End -->
+
+
+        <!-- How We Work Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Our Process</h1>
+                    <p>We follow a structured approach to ensure every transaction is handled with precision and care.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="process-item text-center">
+                            <div class="process-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4">
+                                <span class="text-white fw-bold">1</span>
+                            </div>
+                            <h5>Initial Consultation</h5>
+                            <p>We listen to your needs and objectives to understand your real estate goals.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="process-item text-center">
+                            <div class="process-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4">
+                                <span class="text-white fw-bold">2</span>
+                            </div>
+                            <h5>Property Search/Listing</h5>
+                            <p>We identify suitable properties or prepare your property for the market.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="process-item text-center">
+                            <div class="process-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4">
+                                <span class="text-white fw-bold">3</span>
+                            </div>
+                            <h5>Viewing & Negotiation</h5>
+                            <p>We arrange viewings and handle negotiations to get you the best deal.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="process-item text-center">
+                            <div class="process-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4">
+                                <span class="text-white fw-bold">4</span>
+                            </div>
+                            <h5>Closing & Handover</h5>
+                            <p>We manage all paperwork and ensure a smooth transition to the new owner/tenant.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- How We Work End -->
+
+
+        <!-- Why Choose Us Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                            <img class="img-fluid w-100" src="img/about.jpg" alt="Why Choose Us">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <h1 class="mb-4">Why Choose RentCasaPT?</h1>
+                        <p class="mb-4">With years of experience in the Portuguese real estate market, we've built a reputation for excellence, integrity, and results.</p>
+                        <p><i class="fa fa-check text-primary me-3"></i><strong>Expert Local Knowledge:</strong> In-depth understanding of the Portuguese property market</p>
+                        <p><i class="fa fa-check text-primary me-3"></i><strong>Multilingual Team:</strong> Services available in English, Portuguese, Spanish, and French</p>
+                        <p><i class="fa fa-check text-primary me-3"></i><strong>Technology-Driven:</strong> Advanced tools for property search and market analysis</p>
+                        <p><i class="fa fa-check text-primary me-2"></i><strong>Personalized Approach:</strong> Tailored solutions for each client's unique needs</p>
+                        <p><i class="fa fa-check text-primary me-2"></i><strong>Transparent Pricing:</strong> No hidden fees, clear commission structures</p>
+                        <p><i class="fa fa-check text-primary me-2"></i><strong>After-Sales Support:</strong> Continued assistance even after the transaction is complete</p>
+                        <a class="btn btn-primary py-3 px-5 mt-3" href="contact.html">Contact Us Today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Why Choose Us End -->
+
+
+        <!-- Testimonial Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">What Our Clients Say About Our Services</h1>
+                    <p>Don't just take our word for it. Here's what some of our satisfied clients have to say about working with us.</p>
+                </div>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="testimonial-item bg-light rounded p-3">
+                        <div class="bg-white border rounded p-4">
+                            <p>"RentCasaPT made finding our dream home in Lisbon an absolute pleasure. Their property management service is exceptional - responsive, professional, and thorough."</p>
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg" style="width: 45px; height: 45px;">
+                                <div class="ps-3">
+                                    <h6 class="fw-bold mb-1">Maria Silva</h6>
+                                    <small>Property Owner, Lisbon</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-3">
+                        <div class="bg-white border rounded p-4">
+                            <p>"The team at RentCasaPT provided invaluable assistance with our commercial property purchase. Their legal and documentation services saved us time and headaches."</p>
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg" style="width: 45px; height: 45px;">
+                                <div class="ps-3">
+                                    <h6 class="fw-bold mb-1">John Peterson</h6>
+                                    <small>Business Investor, Porto</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-3">
+                        <div class="bg-white border rounded p-4">
+                            <p>"As an overseas investor, I needed reliable property management. RentCasaPT has been fantastic - their regular updates and maintenance coordination give me peace of mind."</p>
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg" style="width: 45px; height: 45px;">
+                                <div class="ps-3">
+                                    <h6 class="fw-bold mb-1">Sophie Laurent</h6>
+                                    <small>International Investor, France</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+
+        <!-- Call to Action Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="bg-light rounded p-3">
+                    <div class="bg-white rounded p-4" style="border: 1px dashed rgba(6, 78, 59, .35)">
+                        <div class="row g-5 align-items-center">
+                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                                <img class="img-fluid rounded w-100" src="img/call-to-action.jpg" alt="">
+                            </div>
+                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                                <div class="mb-4">
+                                    <h1 class="mb-3">Ready to Experience Our Services?</h1>
+                                    <p>Whether you're buying, selling, renting, or need property management, our team of certified agents is ready to assist you with expert guidance tailored to your needs.</p>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary py-3 px-4 me-2"><i class="fa fa-phone-alt me-2"></i>Schedule Consultation</a>
+                                <a href="property-list.html" class="btn btn-dark py-3 px-4"><i class="fa fa-search me-2"></i>Browse Properties</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Call to Action End -->
+
+
+        <!-- FAQ Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Frequently Asked Questions</h1>
+                    <p>Find answers to common questions about our services and processes.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="accordion" id="accordionExample1">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        What fees do you charge for property sales?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample1">
+                                    <div class="accordion-body">
+                                        Our commission for property sales is competitive and transparent, typically ranging from 3% to 5% depending on the property value and services required. We provide a detailed breakdown of all fees during our initial consultation with no hidden charges.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        How do you screen potential tenants?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample1">
+                                    <div class="accordion-body">
+                                        We conduct thorough tenant screening including credit checks, employment verification, previous landlord references, and income verification. Our comprehensive process ensures we find reliable tenants who will respect your property and pay rent on time.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        What areas in Portugal do you serve?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample1">
+                                    <div class="accordion-body">
+                                        We primarily serve Lisbon, Porto, and the Algarve region, but we have partners throughout Portugal who can assist with properties in other areas. Our main offices are in Lisbon and Porto, with agents available to show properties across the country.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="accordion" id="accordionExample2">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                        How long does the buying process typically take?
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#accordionExample2">
+                                    <div class="accordion-body">
+                                        The property buying process in Portugal typically takes 2-3 months from offer acceptance to completion. This includes due diligence, mortgage approval (if applicable), and legal paperwork. Cash purchases can sometimes be completed in 4-6 weeks.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        Do you assist international buyers?
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample2">
+                                    <div class="accordion-body">
+                                        Absolutely! We have extensive experience working with international clients. Our multilingual team can guide you through the entire process including obtaining a Portuguese fiscal number (NIF), opening a bank account, understanding tax implications, and navigating residency requirements.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        What's included in your property management service?
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample2">
+                                    <div class="accordion-body">
+                                        Our full-service property management includes tenant screening and placement, rent collection, property maintenance coordination, regular inspections, handling tenant issues, financial reporting, and ensuring compliance with local regulations. We act as your local representative to protect your investment.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FAQ End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Get In Touch</h5>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Quick Links</h5>
+                        <a class="btn btn-link text-white-50" href="index.html">Home</a>
+                        <a class="btn btn-link text-white-50" href="about.html">About Us</a>
+                        <a class="btn btn-link text-white-50" href="contact.html">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="services.html">Our Services</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Photo Gallery</h5>
+                        <div class="row g-2 pt-2">
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-1.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-2.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-3.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-4.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-5.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-6.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Newsletter</h5>
+                        <p>Subscribe to our newsletter for updates on new properties and market insights.</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">RentCasaPT</a>, All Right Reserved. 
+                            
+                            <!--/*** This template is free as long as you keep the footer author's credit link/attribution link/backlink. If you'd like to use the template without the footer author's credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a class="border-bottom" href="https://bonusitsolutions.com/">Bonus IT Solutions</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="privacy.html">Privacy Policy</a>
+                                <a href="terms.html">Terms & Condition</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
