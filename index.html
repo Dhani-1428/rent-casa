@@ -452,7 +452,285 @@
             color: white;
         }
         
+        /* Property Search Section */
+        .property-search-section {
+            background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+            padding: 60px 0;
+            margin-top: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .search-container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .search-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .search-title h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .search-title p {
+            color: #666;
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .search-form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .search-input-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .search-input-group .input-group {
+            height: 55px;
+        }
+        
+        .search-input-group .input-group-text {
+            background: #0066ff;
+            border: none;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .search-input-group .form-control,
+        .search-input-group .form-select {
+            border: 1px solid #ddd;
+            border-left: none;
+            height: 100%;
+            padding: 0 15px;
+            font-size: 15px;
+            color: #333;
+            background: white;
+        }
+        
+        .search-input-group .form-control:focus,
+        .search-input-group .form-select:focus {
+            box-shadow: none;
+            border-color: #0066ff;
+        }
+        
+        .search-btn {
+            background: #333;
+            border: none;
+            color: white;
+            padding: 0 30px;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            height: 55px;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .search-btn:hover {
+            background: #222;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .price-filter-container {
+            margin-bottom: 25px;
+        }
+        
+        .price-filter-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .price-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .price-badge {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            color: #495057;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .price-badge:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+        
+        .price-badge.active {
+            background: #0066ff;
+            border-color: #0066ff;
+            color: white;
+        }
+        
+        .additional-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .additional-filters .form-select {
+            flex: 1;
+            min-width: 200px;
+            height: 45px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 0 15px;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .clear-filters-btn {
+            background: transparent;
+            border: 2px solid #0066ff;
+            color: #0066ff;
+            padding: 8px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-width: 150px;
+        }
+        
+        .clear-filters-btn:hover {
+            background: #0066ff;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .search-results-counter {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .search-results-counter.show {
+            display: flex;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .results-info h5 {
+            margin: 0;
+            color: #333;
+            font-size: 18px;
+        }
+        
+        .results-info small {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .search-loading {
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .search-loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #0066ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .search-container {
+                padding: 30px;
+            }
+            
+            .search-title h2 {
+                font-size: 28px;
+            }
+            
+            .search-form-row {
+                flex-direction: column;
+            }
+            
+            .search-btn {
+                width: 100%;
+            }
+        }
+        
         @media (max-width: 768px) {
             .modal-content {
                 width: 95%;
@@ -489,6 +767,37 @@
                 top: 25px;
                 transform: none;
             }
+            
+            .property-search-section {
+                padding: 40px 0;
+            }
+            
+            .search-container {
+                padding: 25px;
+            }
+            
+            .search-title h2 {
+                font-size: 24px;
+            }
+            
+            .price-badges {
+                justify-content: center;
+            }
+            
+            .additional-filters {
+                flex-direction: column;
+            }
+            
+            .additional-filters .form-select,
+            .clear-filters-btn {
+                width: 100%;
+            }
+            
+            .search-results-counter {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
         }
         
         @media (max-width: 576px) {
@@ -507,100 +816,15 @@
             .file-upload-area {
                 padding: 30px 15px;
             }
-        }
-        
-        /* Animations */
-        @keyframes slideInDown {
-            from {
-                transform: translateY(-20px);
-                opacity: 0;
+            
+            .search-title h2 {
+                font-size: 22px;
             }
-            to {
-                transform: translateY(0);
-                opacity: 1;
+            
+            .price-badge {
+                padding: 6px 15px;
+                font-size: 13px;
             }
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        /* Loading Spinner */
-        .spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* Progress Indicator */
-        .form-progress {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            position: relative;
-            padding: 0 20px;
-        }
-        
-        .progress-step {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            flex: 1;
-        }
-        
-        .step-number {
-            width: 40px;
-            height: 40px;
-            background: #404040;
-            color: #888;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 10px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .progress-step.active .step-number {
-            background: #0066ff;
-            color: white;
-        }
-        
-        .step-label {
-            color: #888;
-            font-size: 12px;
-            transition: all 0.3s;
-        }
-        
-        .progress-step.active .step-label {
-            color: #fff;
-        }
-        
-        .form-progress:before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 50px;
-            right: 50px;
-            height: 2px;
-            background: #404040;
-            z-index: 1;
         }
     </style>
 </head>
@@ -640,6 +864,187 @@
         </nav>
     </div>
     <!-- Navbar End -->
+
+    <!-- Header/Hero Section Start -->
+    <div class="container-fluid header bg-white p-0">
+        <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+            <div class="col-md-6 p-5 mt-lg-5">
+                <h1 class="display-5 animated fadeIn mb-4">Find Your <span class="text-primary">Dream Home</span> in Beautiful Portugal</h1>
+                <p class="animated fadeIn mb-4 pb-2">Discover premium properties across Portugal's most sought-after locations. From sunny Algarve villas to Lisbon's modern apartments, we help you find the perfect place to call home.</p>
+                <div class="header-buttons-container">
+                    <a href="#property-search" class="btn btn-primary py-3 px-5 animated fadeIn">Find Properties</a>
+                    <div class="cta-phone-container">
+                        <button class="btn btn-outline-primary py-3 px-5 animated fadeIn header-phone-btn" id="headerPhoneBtn">
+                            Call Now<i class="fa fa-phone-alt ms-2"></i>
+                        </button>
+                        <div class="phone-number" id="headerPhoneNumber">+351 920326572</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 animated fadeIn">
+                <div class="owl-carousel header-carousel">
+                    <div class="owl-carousel-item">
+                        <img class="img-fluid" src="img/carousel-1.jpg" alt="Luxury Villa in Algarve">
+                    </div>
+                    <div class="owl-carousel-item">
+                        <img class="img-fluid" src="img/carousel-2.jpg" alt="Modern Apartment in Lisbon">
+                    </div>
+                    <div class="owl-carousel-item">
+                        <img class="img-fluid" src="img/carousel-3.jpg" alt="Traditional House in Porto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header/Hero Section End -->
+
+    <!-- Property Search Section Start -->
+    <section class="property-search-section wow fadeIn" data-wow-delay="0.1s" id="property-search">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-title">
+                    <h2>Find Your Perfect Property</h2>
+                    <p>Use our advanced search filters to discover properties that match your exact criteria</p>
+                </div>
+                
+                <!-- Search Form -->
+                <div class="search-form-row">
+                    <div class="search-input-group">
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-search"></i>
+                            </span>
+                            <input type="text" class="form-control" id="searchKeyword" placeholder="Search by location or keyword">
+                        </div>
+                    </div>
+                    
+                    <div class="search-input-group">
+                        <select class="form-select" id="propertyTypeFilter">
+                            <option value="">All Property Types</option>
+                            <option value="apartment">Apartments (T0–T4+)</option>
+                            <option value="house">Houses & Villas</option>
+                            <option value="commercial">Commercial & Mixed-Use</option>
+                            <option value="room">Rooms</option>
+                            <option value="holiday">Holiday / Alojamento Local</option>
+                            <option value="land">Land & Plots</option>
+                        </select>
+                    </div>
+                    
+                    <div class="search-input-group">
+                        <select class="form-select" id="locationFilter">
+                            <option value="">All Locations</option>
+                            <option value="lisbon">Lisbon</option>
+                            <option value="porto">Porto</option>
+                            <option value="algarve">Algarve</option>
+                            <option value="madeira">Madeira</option>
+                            <option value="coimbra">Coimbra</option>
+                            <option value="braga">Braga</option>
+                            <option value="aveiro">Aveiro</option>
+                            <option value="faro">Faro</option>
+                        </select>
+                    </div>
+                    
+                    <button class="search-btn" id="searchButton">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+                
+                <!-- Price Filter -->
+                <div class="price-filter-container">
+                    <h6 class="price-filter-title">Price Range</h6>
+                    <div class="price-badges">
+                        <span class="price-badge active" data-price="all">All Prices</span>
+                        <span class="price-badge" data-price="under200k">Under €200,000</span>
+                        <span class="price-badge" data-price="200k-500k">€200K - €500K</span>
+                        <span class="price-badge" data-price="500k-1m">€500K - €1M</span>
+                        <span class="price-badge" data-price="over1m">Over €1M</span>
+                    </div>
+                </div>
+                
+                <!-- Additional Filters -->
+                <div class="additional-filters">
+                    <select class="form-select" id="bedroomsFilter">
+                        <option value="">Bedrooms (Any)</option>
+                        <option value="0">Studio</option>
+                        <option value="1">1 Bedroom</option>
+                        <option value="2">2 Bedrooms</option>
+                        <option value="3">3 Bedrooms</option>
+                        <option value="4">4+ Bedrooms</option>
+                    </select>
+                    
+                    <select class="form-select" id="transactionType">
+                        <option value="">For Sale or Rent</option>
+                        <option value="sale">For Sale</option>
+                        <option value="rent">For Rent</option>
+                    </select>
+                    
+                    <button class="clear-filters-btn" id="clearFilters">
+                        <i class="fas fa-times"></i> Clear Filters
+                    </button>
+                </div>
+                
+                <!-- Search Results Counter -->
+                <div class="search-results-counter" id="resultsCounter">
+                    <div class="results-info">
+                        <h5 id="resultsCount">0 Properties Found</h5>
+                        <small id="activeFilters"></small>
+                    </div>
+                    <div class="search-loading" id="searchLoading">
+                        <div class="search-loading-spinner"></div>
+                        <span>Searching properties...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Property Search Section End -->
+
+    <!-- Featured Properties Section Start -->
+    <div class="container-xxl py-5" id="featured-properties">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="mb-3">Featured Properties</h1>
+                <p>Browse our selection of premium properties. Each listing has been carefully curated to ensure quality and value for our clients.</p>
+            </div>
+            
+            <!-- Property Tabs -->
+            <div class="row g-0 gx-5 align-items-end mb-4">
+                <div class="col-lg-6">
+                    <ul class="nav nav-pills d-inline-flex" id="propertyTabs">
+                        <li class="nav-item me-2">
+                            <button class="btn btn-outline-primary active property-tab" data-filter="all">All Properties</button>
+                        </li>
+                        <li class="nav-item me-2">
+                            <button class="btn btn-outline-primary property-tab" data-filter="sale">For Sale</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-primary property-tab" data-filter="rent">For Rent</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 text-start text-lg-end">
+                    <select class="form-select d-inline-block w-auto" id="sortProperties">
+                        <option value="featured">Sort by: Featured</option>
+                        <option value="price_low">Price: Low to High</option>
+                        <option value="price_high">Price: High to Low</option>
+                        <option value="newest">Newest First</option>
+                        <option value="area">Largest Area</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Properties Container -->
+            <div class="row g-4" id="propertyContainer">
+                <!-- Properties will be dynamically loaded here -->
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-5" id="loadMoreContainer">
+                <button class="btn btn-primary py-3 px-5" id="loadMoreBtn">Load More Properties</button>
+            </div>
+        </div>
+    </div>
+    <!-- Featured Properties Section End -->
 
     <!-- Add Property Modal -->
     <div id="addPropertyModal" class="appointment-modal">
@@ -990,14 +1395,152 @@
         </div>
     </div>
 
-    <!-- Rest of your home page content continues here... -->
-    <!-- Note: I've removed the rest of the HTML to focus on the modal fix, but you should continue with your existing home page content -->
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    
     <script>
-        // DOM Elements
+        // Property data (sample)
+        const properties = [
+            {
+                id: 1,
+                title: "Modern Luxury Apartment in Lisbon",
+                price: 450000,
+                type: "apartment",
+                location: "lisbon",
+                status: "sale",
+                featured: true,
+                image: "img/property-1.jpg",
+                description: "Stunning 3-bedroom apartment with panoramic city views in prime Lisbon location.",
+                details: {
+                    sqft: 120,
+                    beds: 3,
+                    baths: 2,
+                    year: 2020
+                },
+                features: ["Balcony", "Air Conditioning", "Parking", "Elevator"]
+            },
+            {
+                id: 2,
+                title: "Beachfront Villa in Algarve",
+                price: 850000,
+                type: "villa",
+                location: "algarve",
+                status: "sale",
+                featured: true,
+                image: "img/property-2.jpg",
+                description: "Luxury 4-bedroom villa with private pool and direct sea views.",
+                details: {
+                    sqft: 280,
+                    beds: 4,
+                    baths: 3,
+                    year: 2018
+                },
+                features: ["Pool", "Garden", "Parking", "AC", "Fireplace"]
+            },
+            {
+                id: 3,
+                title: "City Center Office Space",
+                price: 320000,
+                type: "commercial",
+                location: "porto",
+                status: "sale",
+                featured: true,
+                image: "img/property-3.jpg",
+                description: "Prime commercial space in Porto's business district.",
+                details: {
+                    sqft: 180,
+                    beds: 0,
+                    baths: 2,
+                    year: 2021
+                },
+                features: ["AC", "Elevator", "Storage", "Parking"]
+            },
+            {
+                id: 4,
+                title: "Monthly Rental Apartment",
+                price: 1200,
+                type: "apartment",
+                location: "lisbon",
+                status: "rent",
+                featured: true,
+                image: "img/property-4.jpg",
+                description: "Fully furnished 2-bedroom apartment in prime location.",
+                details: {
+                    sqft: 95,
+                    beds: 2,
+                    baths: 1,
+                    year: 2019
+                },
+                features: ["Furnished", "Balcony", "AC", "Elevator", "WiFi"]
+            },
+            {
+                id: 5,
+                title: "Traditional Townhouse",
+                price: 275000,
+                type: "townhouse",
+                location: "coimbra",
+                status: "sale",
+                featured: true,
+                image: "img/property-5.jpg",
+                description: "Charming renovated townhouse in historic center.",
+                details: {
+                    sqft: 160,
+                    beds: 3,
+                    baths: 2,
+                    year: 2015
+                },
+                features: ["Garden", "Fireplace", "Storage", "Parking"]
+            },
+            {
+                id: 6,
+                title: "Luxury Penthouse",
+                price: 1250000,
+                type: "apartment",
+                location: "lisbon",
+                status: "sale",
+                featured: true,
+                image: "img/property-6.jpg",
+                description: "Exclusive penthouse with private terrace and pool.",
+                details: {
+                    sqft: 320,
+                    beds: 4,
+                    baths: 3,
+                    year: 2022
+                },
+                features: ["Pool", "Balcony", "AC", "Elevator", "Parking", "Fireplace"]
+            }
+        ];
+
+        // DOM Elements for Property Search
+        const searchKeyword = document.getElementById('searchKeyword');
+        const propertyTypeFilter = document.getElementById('propertyTypeFilter');
+        const locationFilter = document.getElementById('locationFilter');
+        const searchButton = document.getElementById('searchButton');
+        const priceBadges = document.querySelectorAll('.price-badge');
+        const bedroomsFilter = document.getElementById('bedroomsFilter');
+        const transactionType = document.getElementById('transactionType');
+        const clearFilters = document.getElementById('clearFilters');
+        const resultsCounter = document.getElementById('resultsCounter');
+        const resultsCount = document.getElementById('resultsCount');
+        const activeFilters = document.getElementById('activeFilters');
+        const searchLoading = document.getElementById('searchLoading');
+        const propertyContainer = document.getElementById('propertyContainer');
+        const propertyTabs = document.querySelectorAll('.property-tab');
+        const sortProperties = document.getElementById('sortProperties');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+        // DOM Elements for Add Property Modal
         const addPropertyModal = document.getElementById('addPropertyModal');
         const addPropertyBtn = document.getElementById('addPropertyBtn');
-        const closeModal = document.querySelector('.close-modal');
+        const closeModalBtn = document.querySelector('.close-modal');
         const addPropertyForm = document.getElementById('addPropertyForm');
         const welcomeMessage = document.getElementById('welcomeMessage');
         const successMessage = document.getElementById('successMessage');
@@ -1006,74 +1549,442 @@
         const filePreview = document.getElementById('filePreview');
         const rentalFields = document.getElementById('rentalFields');
         const submitBtn = document.getElementById('submitBtn');
-        
-        // Form steps
-        const formSteps = document.querySelectorAll('.form-step');
-        const progressSteps = document.querySelectorAll('.progress-step');
         const nextStepButtons = document.querySelectorAll('.next-step');
         const prevStepButtons = document.querySelectorAll('.prev-step');
+        const formSteps = document.querySelectorAll('.form-step');
+        const progressSteps = document.querySelectorAll('.progress-step');
 
-        // Check if it's first visit
-        function isFirstVisit() {
-            return !localStorage.getItem('rentCasaPT_firstVisit');
+        // Current filter state
+        let currentFilters = {
+            keyword: '',
+            type: '',
+            location: '',
+            price: 'all',
+            status: 'all',
+            bedrooms: '',
+            transaction: '',
+            sort: 'featured',
+            limit: 6,
+            offset: 0
+        };
+
+        // Currently displayed properties
+        let currentProperties = [];
+
+        // Initialize the page
+        function init() {
+            renderProperties(getFilteredProperties());
+            updateResultsCounter();
+            setupEventListeners();
+            setupModal();
         }
 
-        // Mark form as shown
-        function markFirstVisit() {
-            localStorage.setItem('rentCasaPT_firstVisit', 'true');
+        // Setup event listeners
+        function setupEventListeners() {
+            // Search functionality
+            searchButton.addEventListener('click', performSearch);
+            searchKeyword.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') performSearch();
+            });
+            
+            // Price filter badges
+            priceBadges.forEach(badge => {
+                badge.addEventListener('click', function() {
+                    priceBadges.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilters.price = this.dataset.price;
+                    performSearch();
+                });
+            });
+            
+            // Property tabs
+            propertyTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    propertyTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilters.status = this.dataset.filter;
+                    performSearch();
+                });
+            });
+            
+            // Sort dropdown
+            sortProperties.addEventListener('change', function() {
+                currentFilters.sort = this.value;
+                performSearch();
+            });
+            
+            // Clear filters
+            clearFilters.addEventListener('click', clearAllFilters);
+            
+            // Load more button
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', loadMoreProperties);
+            }
+            
+            // Phone reveal buttons
+            setupPhoneReveal();
         }
 
-        // Show modal with animation
+        // Setup modal functionality
+        function setupModal() {
+            // Check if it's first visit
+            if (!localStorage.getItem('rentCasaPT_firstVisit')) {
+                setTimeout(() => {
+                    showModal();
+                    localStorage.setItem('rentCasaPT_firstVisit', 'true');
+                }, 1500);
+            } else {
+                welcomeMessage.style.display = 'none';
+            }
+            
+            // Modal open/close
+            addPropertyBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal();
+                welcomeMessage.style.display = 'none';
+            });
+            
+            closeModalBtn.addEventListener('click', hideModal);
+            
+            window.addEventListener('click', (e) => {
+                if (e.target === addPropertyModal) hideModal();
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && addPropertyModal.classList.contains('show')) {
+                    hideModal();
+                }
+            });
+            
+            // Form steps navigation
+            nextStepButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const currentStep = parseInt(button.closest('.form-step').dataset.step);
+                    const nextStep = parseInt(button.dataset.next);
+                    if (validateStep(currentStep)) showStep(nextStep);
+                });
+            });
+            
+            prevStepButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const prevStep = parseInt(button.dataset.prev);
+                    showStep(prevStep);
+                });
+            });
+            
+            // Transaction type change
+            document.querySelectorAll('input[name="transactionType"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    rentalFields.style.display = e.target.value === 'rent' ? 'block' : 'none';
+                });
+            });
+            
+            // File upload
+            fileUploadArea.addEventListener('click', () => propertyImagesInput.click());
+            propertyImagesInput.addEventListener('change', handleFileSelection);
+            
+            // Form submission
+            addPropertyForm.addEventListener('submit', handleFormSubmit);
+        }
+
+        // Get filtered properties based on current filters
+        function getFilteredProperties() {
+            let filtered = [...properties];
+            
+            // Filter by status
+            if (currentFilters.status !== 'all') {
+                filtered = filtered.filter(p => p.status === currentFilters.status);
+            }
+            
+            // Filter by transaction type
+            if (currentFilters.transaction) {
+                filtered = filtered.filter(p => p.status === currentFilters.transaction);
+            }
+            
+            // Filter by keyword
+            if (currentFilters.keyword) {
+                const keyword = currentFilters.keyword.toLowerCase();
+                filtered = filtered.filter(p => 
+                    p.title.toLowerCase().includes(keyword) || 
+                    p.description.toLowerCase().includes(keyword) ||
+                    p.location.toLowerCase().includes(keyword) ||
+                    p.features.some(f => f.toLowerCase().includes(keyword))
+                );
+            }
+            
+            // Filter by type
+            if (currentFilters.type) {
+                filtered = filtered.filter(p => p.type === currentFilters.type);
+            }
+            
+            // Filter by location
+            if (currentFilters.location) {
+                filtered = filtered.filter(p => p.location === currentFilters.location);
+            }
+            
+            // Filter by bedrooms
+            if (currentFilters.bedrooms) {
+                if (currentFilters.bedrooms === '4') {
+                    filtered = filtered.filter(p => p.details.beds >= 4);
+                } else {
+                    filtered = filtered.filter(p => p.details.beds == currentFilters.bedrooms);
+                }
+            }
+            
+            // Filter by price
+            if (currentFilters.price !== 'all') {
+                switch(currentFilters.price) {
+                    case 'under200k':
+                        filtered = filtered.filter(p => p.price < 200000);
+                        break;
+                    case '200k-500k':
+                        filtered = filtered.filter(p => p.price >= 200000 && p.price <= 500000);
+                        break;
+                    case '500k-1m':
+                        filtered = filtered.filter(p => p.price > 500000 && p.price <= 1000000);
+                        break;
+                    case 'over1m':
+                        filtered = filtered.filter(p => p.price > 1000000);
+                        break;
+                }
+            }
+            
+            // Sort properties
+            return sortPropertiesList(filtered);
+        }
+
+        // Sort properties
+        function sortPropertiesList(propertiesList) {
+            switch(currentFilters.sort) {
+                case 'price_low':
+                    return propertiesList.sort((a, b) => a.price - b.price);
+                case 'price_high':
+                    return propertiesList.sort((a, b) => b.price - a.price);
+                case 'newest':
+                    return propertiesList.sort((a, b) => b.details.year - a.details.year);
+                case 'area':
+                    return propertiesList.sort((a, b) => b.details.sqft - a.details.sqft);
+                default:
+                    return propertiesList.sort((a, b) => b.featured - a.featured);
+            }
+        }
+
+        // Render properties to the page
+        function renderProperties(filteredProperties, append = false) {
+            if (!append) {
+                propertyContainer.innerHTML = '';
+                currentFilters.offset = 0;
+                currentProperties = [];
+            }
+            
+            if (filteredProperties.length === 0) {
+                propertyContainer.innerHTML = `
+                    <div class="col-12 text-center">
+                        <div class="alert alert-info">
+                            <h4>No properties found</h4>
+                            <p>Try adjusting your search criteria</p>
+                        </div>
+                    </div>
+                `;
+                loadMoreBtn.style.display = 'none';
+                return;
+            }
+            
+            // Get properties to show
+            const propertiesToShow = filteredProperties.slice(currentFilters.offset, currentFilters.offset + currentFilters.limit);
+            currentProperties = [...currentProperties, ...propertiesToShow];
+            
+            propertiesToShow.forEach(property => {
+                const propertyElement = createPropertyElement(property);
+                propertyContainer.appendChild(propertyElement);
+            });
+            
+            // Update load more button visibility
+            if (currentProperties.length < filteredProperties.length) {
+                loadMoreBtn.style.display = 'block';
+            } else {
+                loadMoreBtn.style.display = 'none';
+            }
+        }
+
+        // Create property card HTML
+        function createPropertyElement(property) {
+            const div = document.createElement('div');
+            div.className = 'col-lg-4 col-md-6 wow fadeInUp';
+            div.setAttribute('data-wow-delay', '0.1s');
+            
+            const priceType = property.status === 'rent' ? '/month' : '';
+            const statusText = property.status === 'rent' ? 'For Rent' : 'For Sale';
+            const locationText = property.location.charAt(0).toUpperCase() + property.location.slice(1);
+            
+            div.innerHTML = `
+                <div class="property-item rounded overflow-hidden">
+                    <div class="position-relative overflow-hidden">
+                        <a href="property-detail.html?id=${property.id}">
+                            <img class="img-fluid" src="${property.image}" alt="${property.title}">
+                        </a>
+                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                            ${statusText}
+                        </div>
+                    </div>
+                    <div class="p-4 pb-0">
+                        <h5 class="text-primary mb-3">
+                            €${property.status === 'rent' ? property.price + '/month' : property.price.toLocaleString()}
+                        </h5>
+                        <a class="d-block h5 mb-2" href="property-detail.html?id=${property.id}">
+                            ${property.title}
+                        </a>
+                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>
+                            ${locationText}, Portugal
+                        </p>
+                        <p class="text-muted small">${property.description}</p>
+                    </div>
+                    <div class="d-flex border-top">
+                        <small class="flex-fill text-center border-end py-2">
+                            <i class="fa fa-ruler-combined text-primary me-2"></i>${property.details.sqft} m²
+                        </small>
+                        <small class="flex-fill text-center border-end py-2">
+                            <i class="fa fa-bed text-primary me-2"></i>${property.details.beds} Bed
+                        </small>
+                        <small class="flex-fill text-center py-2">
+                            <i class="fa fa-bath text-primary me-2"></i>${property.details.baths} Bath
+                        </small>
+                    </div>
+                </div>
+            `;
+            
+            return div;
+        }
+
+        // Perform search
+        function performSearch() {
+            // Update filters from form inputs
+            currentFilters.keyword = searchKeyword.value.toLowerCase();
+            currentFilters.type = propertyTypeFilter.value;
+            currentFilters.location = locationFilter.value;
+            currentFilters.bedrooms = bedroomsFilter.value;
+            currentFilters.transaction = transactionType.value;
+            
+            // Show loading
+            searchLoading.style.display = 'flex';
+            resultsCounter.classList.add('show');
+            
+            // Simulate search delay
+            setTimeout(() => {
+                renderProperties(getFilteredProperties());
+                updateResultsCounter();
+                searchLoading.style.display = 'none';
+                
+                // Scroll to results if on mobile
+                if (window.innerWidth < 992) {
+                    document.getElementById('featured-properties').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }, 500);
+        }
+
+        // Update results counter
+        function updateResultsCounter() {
+            const filteredProperties = getFilteredProperties();
+            const totalResults = filteredProperties.length;
+            const showingResults = Math.min(totalResults, currentProperties.length);
+            
+            resultsCount.textContent = `${showingResults} of ${totalResults} Properties Found`;
+            
+            // Build active filters text
+            const activeFiltersArray = [];
+            if (currentFilters.keyword) activeFiltersArray.push(`Search: "${currentFilters.keyword}"`);
+            if (currentFilters.type) activeFiltersArray.push(`Type: ${propertyTypeFilter.options[propertyTypeFilter.selectedIndex].text}`);
+            if (currentFilters.location) activeFiltersArray.push(`Location: ${locationFilter.options[locationFilter.selectedIndex].text}`);
+            if (currentFilters.price !== 'all') activeFiltersArray.push(`Price: ${document.querySelector('.price-badge.active').textContent}`);
+            if (currentFilters.bedrooms) activeFiltersArray.push(`Bedrooms: ${bedroomsFilter.options[bedroomsFilter.selectedIndex].text}`);
+            if (currentFilters.transaction) activeFiltersArray.push(`For: ${transactionType.options[transactionType.selectedIndex].text}`);
+            
+            activeFilters.textContent = activeFiltersArray.length > 0 ? `Active filters: ${activeFiltersArray.join(', ')}` : '';
+            
+            // Show/hide results counter
+            if (activeFiltersArray.length > 0 || currentFilters.status !== 'all') {
+                resultsCounter.classList.add('show');
+            } else {
+                resultsCounter.classList.remove('show');
+            }
+        }
+
+        // Clear all filters
+        function clearAllFilters() {
+            searchKeyword.value = '';
+            propertyTypeFilter.value = '';
+            locationFilter.value = '';
+            bedroomsFilter.value = '';
+            transactionType.value = '';
+            sortProperties.value = 'featured';
+            
+            // Reset price filter
+            priceBadges.forEach(badge => {
+                badge.classList.remove('active');
+                if (badge.dataset.price === 'all') {
+                    badge.classList.add('active');
+                }
+            });
+            
+            // Reset tab filter
+            propertyTabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.dataset.filter === 'all') {
+                    tab.classList.add('active');
+                }
+            });
+            
+            // Reset current filters
+            currentFilters = {
+                keyword: '',
+                type: '',
+                location: '',
+                price: 'all',
+                status: 'all',
+                bedrooms: '',
+                transaction: '',
+                sort: 'featured',
+                limit: 6,
+                offset: 0
+            };
+            
+            renderProperties(getFilteredProperties());
+            updateResultsCounter();
+            resultsCounter.classList.remove('show');
+        }
+
+        // Load more properties
+        function loadMoreProperties() {
+            currentFilters.offset += currentFilters.limit;
+            const filteredProperties = getFilteredProperties();
+            renderProperties(filteredProperties, true);
+            updateResultsCounter();
+        }
+
+        // Modal functions
         function showModal() {
             addPropertyModal.classList.add('show');
             document.body.classList.add('modal-open');
             document.body.style.overflow = 'hidden';
         }
 
-        // Hide modal with animation
         function hideModal() {
             addPropertyModal.classList.remove('show');
             document.body.classList.remove('modal-open');
             document.body.style.overflow = 'auto';
-            
-            // Reset form
-            setTimeout(() => {
-                resetForm();
-            }, 300);
+            resetForm();
         }
 
-        // Reset form to initial state
-        function resetForm() {
-            addPropertyForm.reset();
-            filePreview.innerHTML = '';
-            successMessage.style.display = 'none';
-            
-            // Reset steps
-            showStep(1);
-            
-            // Reset radio buttons
-            document.getElementById('forSale').checked = true;
-            rentalFields.style.display = 'none';
-            
-            // Remove validation classes
-            const invalidFields = addPropertyForm.querySelectorAll('.is-invalid');
-            invalidFields.forEach(field => field.classList.remove('is-invalid'));
-        }
-
-        // Show specific step
         function showStep(stepNumber) {
-            // Hide all steps
-            formSteps.forEach(step => {
-                step.style.display = 'none';
-            });
-            
-            // Show target step
+            formSteps.forEach(step => step.style.display = 'none');
             const targetStep = document.querySelector(`.form-step[data-step="${stepNumber}"]`);
-            if (targetStep) {
-                targetStep.style.display = 'block';
-            }
+            if (targetStep) targetStep.style.display = 'block';
             
-            // Update progress indicator
             progressSteps.forEach(step => {
                 step.classList.remove('active');
                 if (parseInt(step.dataset.step) <= stepNumber) {
@@ -1081,18 +1992,12 @@
                 }
             });
             
-            // Scroll to top of modal
-            const modalBody = document.querySelector('.modal-body');
-            if (modalBody) {
-                modalBody.scrollTop = 0;
-            }
+            document.querySelector('.modal-body').scrollTop = 0;
         }
 
-        // Validate current step
         function validateStep(stepNumber) {
             let isValid = true;
             const currentStep = document.querySelector(`.form-step[data-step="${stepNumber}"]`);
-            
             if (!currentStep) return true;
             
             const requiredFields = currentStep.querySelectorAll('[required]');
@@ -1102,127 +2007,20 @@
                     field.classList.add('is-invalid');
                     isValid = false;
                 }
-                
-                // Special validation for email
-                if (field.type === 'email' && field.value.trim()) {
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailRegex.test(field.value)) {
-                        field.classList.add('is-invalid');
-                        isValid = false;
-                    }
-                }
             });
             
             return isValid;
         }
 
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            // Check if it's first visit
-            if (isFirstVisit()) {
-                // Show modal after 1.5 seconds
-                setTimeout(() => {
-                    showModal();
-                    markFirstVisit();
-                }, 1500);
-            }
-            
-            // Hide welcome message after first visit
-            if (!isFirstVisit()) {
-                welcomeMessage.style.display = 'none';
-            }
-            
-            // Initialize form steps
+        function resetForm() {
+            addPropertyForm.reset();
+            filePreview.innerHTML = '';
+            successMessage.style.display = 'none';
             showStep(1);
-        });
-
-        // Open modal when Add Property button is clicked
-        addPropertyBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            showModal();
-            welcomeMessage.style.display = 'none'; // Hide welcome message on subsequent opens
-        });
-
-        // Close modal when X is clicked
-        closeModal.addEventListener('click', hideModal);
-
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === addPropertyModal) {
-                hideModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && addPropertyModal.classList.contains('show')) {
-                hideModal();
-            }
-        });
-
-        // Next step buttons
-        nextStepButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const currentStep = parseInt(button.closest('.form-step').dataset.step);
-                const nextStep = parseInt(button.dataset.next);
-                
-                if (validateStep(currentStep)) {
-                    showStep(nextStep);
-                }
-            });
-        });
-
-        // Previous step buttons
-        prevStepButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const prevStep = parseInt(button.dataset.prev);
-                showStep(prevStep);
-            });
-        });
-
-        // Show/hide rental fields based on transaction type
-        const transactionRadios = document.querySelectorAll('input[name="transactionType"]');
-        transactionRadios.forEach(radio => {
-            radio.addEventListener('change', (e) => {
-                if (e.target.value === 'rent') {
-                    rentalFields.style.display = 'block';
-                } else {
-                    rentalFields.style.display = 'none';
-                }
-            });
-        });
-
-        // File upload functionality
-        fileUploadArea.addEventListener('click', () => {
-            propertyImagesInput.click();
-        });
-
-        // Allow drag and drop
-        fileUploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            fileUploadArea.style.borderColor = '#0066ff';
-            fileUploadArea.style.background = 'rgba(0, 102, 255, 0.1)';
-        });
-
-        fileUploadArea.addEventListener('dragleave', () => {
-            fileUploadArea.style.borderColor = '#404040';
-            fileUploadArea.style.background = 'rgba(255, 255, 255, 0.03)';
-        });
-
-        fileUploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            fileUploadArea.style.borderColor = '#404040';
-            fileUploadArea.style.background = 'rgba(255, 255, 255, 0.03)';
-            
-            if (e.dataTransfer.files.length) {
-                propertyImagesInput.files = e.dataTransfer.files;
-                handleFileSelection();
-            }
-        });
-
-        propertyImagesInput.addEventListener('change', handleFileSelection);
+            document.getElementById('forSale').checked = true;
+            rentalFields.style.display = 'none';
+            addPropertyForm.querySelectorAll('.is-invalid').forEach(field => field.classList.remove('is-invalid'));
+        }
 
         function handleFileSelection() {
             const files = Array.from(propertyImagesInput.files);
@@ -1230,12 +2028,12 @@
             
             files.slice(0, 10).forEach((file, index) => {
                 if (!file.type.startsWith('image/')) {
-                    alert(`File "${file.name}" is not an image. Please upload only images.`);
+                    alert(`File "${file.name}" is not an image.`);
                     return;
                 }
                 
                 if (file.size > 5 * 1024 * 1024) {
-                    alert(`File "${file.name}" is too large. Maximum size is 5MB.`);
+                    alert(`File "${file.name}" is too large (max 5MB).`);
                     return;
                 }
                 
@@ -1244,9 +2042,9 @@
                     const previewItem = document.createElement('div');
                     previewItem.className = 'file-preview-item';
                     previewItem.innerHTML = `
-                        <img src="${e.target.result}" alt="Preview ${index + 1}">
+                        <img src="${e.target.result}" alt="Preview">
                         <div class="position-absolute top-0 end-0 p-1">
-                            <button type="button" class="btn btn-danger btn-sm" onclick="removeImage(${index})">
+                            <button type="button" class="btn btn-danger btn-sm" onclick="this.parentElement.parentElement.remove()">
                                 <i class="fas fa-times"></i>
                             </button>
                         </div>
@@ -1256,26 +2054,12 @@
                 reader.readAsDataURL(file);
             });
             
-            // Show warning if too many files
             if (files.length > 10) {
-                alert('Maximum 10 images allowed. Only the first 10 will be uploaded.');
+                alert('Maximum 10 images allowed.');
             }
         }
 
-        // Remove image function (needs to be global for onclick)
-        window.removeImage = function(index) {
-            const dt = new DataTransfer();
-            const files = Array.from(propertyImagesInput.files);
-            
-            files.splice(index, 1);
-            files.forEach(file => dt.items.add(file));
-            
-            propertyImagesInput.files = dt.files;
-            handleFileSelection();
-        };
-
-        // Form submission
-        addPropertyForm.addEventListener('submit', async (e) => {
+        async function handleFormSubmit(e) {
             e.preventDefault();
             
             // Validate all steps
@@ -1298,7 +2082,7 @@
             submitBtn.innerHTML = '<span class="spinner"></span> Submitting...';
             submitBtn.disabled = true;
             
-            // Simulate API call delay
+            // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 1500));
             
             // Get form data
@@ -1308,44 +2092,18 @@
                 title: document.getElementById('title').value,
                 price: document.getElementById('price').value,
                 location: document.getElementById('location').value,
-                bedrooms: document.getElementById('bedrooms').value,
-                bathrooms: document.getElementById('bathrooms').value,
-                area: document.getElementById('area').value,
                 description: document.getElementById('description').value,
                 contactName: document.getElementById('contactName').value,
                 contactPhone: document.getElementById('contactPhone').value,
-                contactEmail: document.getElementById('contactEmail').value,
-                features: [],
-                images: Array.from(propertyImagesInput.files).map(file => file.name)
+                contactEmail: document.getElementById('contactEmail').value
             };
-            
-            // Get checked features
-            const featureCheckboxes = addPropertyForm.querySelectorAll('input[type="checkbox"]');
-            featureCheckboxes.forEach(checkbox => {
-                if (checkbox.checked && checkbox.id.startsWith('feature')) {
-                    formData.features.push(checkbox.nextElementSibling.textContent.trim());
-                }
-            });
-            
-            // Get preferred contact methods
-            const contactMethods = [];
-            if (document.getElementById('contactByPhone').checked) contactMethods.push('phone');
-            if (document.getElementById('contactByEmail').checked) contactMethods.push('email');
-            if (document.getElementById('contactByWhatsApp').checked) contactMethods.push('whatsapp');
-            formData.preferredContact = contactMethods;
-            
-            // Add rental-specific data
-            if (formData.transactionType === 'rent') {
-                formData.rentalPeriod = document.getElementById('rentalPeriod').value;
-                formData.securityDeposit = document.getElementById('securityDeposit').value;
-            }
             
             console.log('Property Listing Submitted:', formData);
             
             // Show success message
             successMessage.style.display = 'block';
             
-            // Reset button state
+            // Reset button
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
             
@@ -1353,19 +2111,32 @@
             setTimeout(() => {
                 hideModal();
             }, 3000);
-        });
+        }
 
-        // Real-time validation
-        const formInputs = addPropertyForm.querySelectorAll('input, textarea, select');
-        formInputs.forEach(input => {
-            input.addEventListener('blur', () => {
-                if (input.hasAttribute('required') && !input.value.trim()) {
-                    input.classList.add('is-invalid');
-                } else {
-                    input.classList.remove('is-invalid');
-                }
-            });
-        });
+        // Phone reveal functionality
+        function setupPhoneReveal() {
+            const headerPhoneBtn = document.getElementById('headerPhoneBtn');
+            if (headerPhoneBtn) {
+                headerPhoneBtn.addEventListener('click', function() {
+                    const phoneNumber = this.parentElement.querySelector('.phone-number');
+                    const icon = this.querySelector('i');
+                    if (phoneNumber.style.display === 'block') {
+                        phoneNumber.style.display = 'none';
+                        icon.className = 'fa fa-phone-alt ms-2';
+                    } else {
+                        phoneNumber.style.display = 'block';
+                        icon.className = 'fa fa-phone ms-2';
+                        setTimeout(() => {
+                            phoneNumber.style.display = 'none';
+                            icon.className = 'fa fa-phone-alt ms-2';
+                        }, 30000);
+                    }
+                });
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
