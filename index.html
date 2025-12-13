@@ -53,7 +53,7 @@
             padding: 30px;
             border-radius: 10px;
             width: 90%;
-            max-width: 500px;
+            max-width: 600px;
             position: relative;
             animation: modalFadeIn 0.3s;
         }
@@ -245,6 +245,37 @@
             gap: 8px;
         }
         
+        /* Form Styles for Add Property */
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .form-check-label {
+            margin-right: 15px;
+        }
+        
+        /* Feature checkboxes */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .cta-buttons-container {
@@ -265,6 +296,29 @@
             .header-buttons-container a {
                 width: 100%;
             }
+            
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .form-group {
+                min-width: 100%;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Add Property Button */
+        .add-property-btn {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        
+        .add-property-btn:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
         }
     </style>
 </head>
@@ -333,6 +387,191 @@
             </div>
         </div>
 
+        <!-- Add Property Modal -->
+        <div id="addPropertyModal" class="appointment-modal">
+            <div class="modal-content">
+                <span class="close-modal close-property-modal">&times;</span>
+                <div class="modal-scroll-fix">
+                    <h3 class="mb-4">Add New Property</h3>
+                    <form id="addPropertyForm">
+                        <!-- Transaction Type -->
+                        <div class="mb-3">
+                            <label class="form-label">Transaction Type *</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="transactionType" id="forSale" value="sale" checked required>
+                                <label class="form-check-label" for="forSale">
+                                    For Sale
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="transactionType" id="forRent" value="rent" required>
+                                <label class="form-check-label" for="forRent">
+                                    For Rent
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Property Type -->
+                        <div class="mb-3">
+                            <label for="propertyType" class="form-label">Property Type *</label>
+                            <select class="form-control" id="propertyType" required>
+                                <option value="">Select property type</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="house">House</option>
+                                <option value="villa">Villa</option>
+                                <option value="townhouse">Townhouse</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="office">Office</option>
+                                <option value="shop">Shop</option>
+                                <option value="land">Land</option>
+                                <option value="farm">Farm</option>
+                                <option value="room">Room</option>
+                                <option value="holiday">Holiday Home</option>
+                            </select>
+                        </div>
+
+                        <!-- Basic Information -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="title" class="form-label">Title *</label>
+                                <input type="text" class="form-control" id="title" placeholder="e.g., Modern Apartment in Lisbon" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="price" class="form-label">Price *</label>
+                                <input type="number" class="form-control" id="price" placeholder="e.g., 300000" min="0" required>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Location *</label>
+                            <input type="text" class="form-control" id="location" placeholder="Full address or area" required>
+                        </div>
+
+                        <!-- Property Details -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bedrooms" class="form-label">Bedrooms</label>
+                                <select class="form-control" id="bedrooms">
+                                    <option value="">Select</option>
+                                    <option value="0">0 (Studio)</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5+">5+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="bathrooms" class="form-label">Bathrooms</label>
+                                <select class="form-control" id="bathrooms">
+                                    <option value="">Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5+">5+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="area" class="form-label">Area (m²)</label>
+                                <input type="number" class="form-control" id="area" placeholder="e.g., 120" min="0">
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description *</label>
+                            <textarea class="form-control" id="description" rows="4" placeholder="Describe the property in detail..." required></textarea>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="mb-3">
+                            <label class="form-label">Features</label>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <input type="checkbox" id="featurePool" class="form-check-input">
+                                    <label for="featurePool" class="form-check-label">Pool</label>
+                                </div>
+                                <div class="feature-item">
+                                    <input type="checkbox" id="featureGarden" class="form-check-input">
+                                    <label for="featureGarden" class="form-check-label">Garden</label>
+                                </div>
+                                <div class="feature-item">
+                                    <input type="checkbox" id="featureParking" class="form-check-input">
+                                    <label for="featureParking" class="form-check-label">Parking</label>
+                                </div>
+                                <div class="feature-item">
+                                    <input type="checkbox" id="featureBalcony" class="form-check-input">
+                                    <label for="featureBalcony" class="form-check-label">Balcony</label>
+                                </div>
+                                <div class="feature-item">
+                                    <input type="checkbox" id="featureAC" class="form-check-input">
+                                    <label for="featureAC" class="form-check-label">Air Conditioning</label>
+                                </div>
+                                <div class="feature-item">
+                                    <input type="checkbox" id="featureHeating" class="form-check-input">
+                                    <label for="featureHeating" class="form-check-label">Heating</label>
+                                </div>
+                                <div class="feature-item">
+                                    <input type="checkbox" id="featureFurnished" class="form-check-input">
+                                    <label for="featureFurnished" class="form-check-label">Furnished</label>
+                                </div>
+                                <div class="feature-item">
+                                    <input type="checkbox" id="featureElevator" class="form-check-input">
+                                    <label for="featureElevator" class="form-check-label">Elevator</label>
+                                </div>
+                                <div class="feature-item">
+                                    <input type="checkbox" id="featureStorage" class="form-check-input">
+                                    <label for="featureStorage" class="form-check-label">Storage</label>
+                                </div>
+                                <div class="feature-item">
+                                    <input type="checkbox" id="featureFireplace" class="form-check-input">
+                                    <label for="featureFireplace" class="form-check-label">Fireplace</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="mb-3">
+                            <label class="form-label">Contact Information *</label>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactName" class="form-label">Contact Name</label>
+                                    <input type="text" class="form-control" id="contactName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactPhone" class="form-label">Contact Phone</label>
+                                    <input type="tel" class="form-control" id="contactPhone" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactEmail" class="form-label">Contact Email</label>
+                                <input type="email" class="form-control" id="contactEmail" required>
+                            </div>
+                        </div>
+
+                        <!-- Images Upload -->
+                        <div class="mb-3">
+                            <label for="propertyImages" class="form-label">Property Images</label>
+                            <input type="file" class="form-control" id="propertyImages" multiple accept="image/*">
+                            <small class="text-muted">You can upload multiple images (max 10, 5MB each)</small>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="termsAgreement" required>
+                            <label class="form-check-label" for="termsAgreement">
+                                I agree to the <a href="#" class="text-primary">Terms and Conditions</a> and confirm that all information provided is accurate.
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 py-3">Submit Property Listing</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <!-- Navbar Start -->
         <div class="container-fluid nav-bar bg-transparent">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
@@ -367,7 +606,7 @@
                         </div>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Add Property</a>
+                    <a href="#" class="btn btn-success px-3 d-none d-lg-flex add-property-btn" id="addPropertyBtn">Add Property</a>
                 </div>
             </nav>
         </div>
@@ -984,10 +1223,14 @@
         ];
 
         // DOM Elements
-        const modal = document.getElementById('appointmentModal');
+        const appointmentModal = document.getElementById('appointmentModal');
+        const addPropertyModal = document.getElementById('addPropertyModal');
         const appointmentBtn = document.getElementById('appointmentBtn');
+        const addPropertyBtn = document.getElementById('addPropertyBtn');
         const closeModal = document.querySelector('.close-modal');
+        const closePropertyModal = document.querySelector('.close-property-modal');
         const appointmentForm = document.getElementById('appointmentForm');
+        const addPropertyForm = document.getElementById('addPropertyForm');
         const propertyContainer = document.getElementById('propertyContainer');
         const searchBtn = document.getElementById('searchBtn');
         const searchKeyword = document.getElementById('searchKeyword');
@@ -1146,36 +1389,88 @@
             renderProperties(filtered);
         }
 
-        // Modal functionality
+        // Modal functionality - Appointment
         appointmentBtn.addEventListener('click', () => {
-            modal.style.display = 'block';
-            // Scroll to top of modal
-            modal.scrollTop = 0;
-            // Prevent body scrolling
+            appointmentModal.style.display = 'block';
+            appointmentModal.scrollTop = 0;
             document.body.style.overflow = 'hidden';
         });
 
         closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-            // Restore body scrolling
+            appointmentModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Modal functionality - Add Property
+        addPropertyBtn.addEventListener('click', () => {
+            addPropertyModal.style.display = 'block';
+            addPropertyModal.scrollTop = 0;
+            document.body.style.overflow = 'hidden';
+        });
+
+        closePropertyModal.addEventListener('click', () => {
+            addPropertyModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         });
 
         window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                // Restore body scrolling
+            if (e.target === appointmentModal) {
+                appointmentModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (e.target === addPropertyModal) {
+                addPropertyModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
         });
 
+        // Form submission handlers
         appointmentForm.addEventListener('submit', (e) => {
             e.preventDefault();
             alert('Thank you! Your appointment request has been submitted. We will contact you shortly to confirm.');
-            modal.style.display = 'none';
-            // Restore body scrolling
+            appointmentModal.style.display = 'none';
             document.body.style.overflow = 'auto';
             appointmentForm.reset();
+        });
+
+        addPropertyForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                transactionType: document.querySelector('input[name="transactionType"]:checked').value,
+                propertyType: document.getElementById('propertyType').value,
+                title: document.getElementById('title').value,
+                price: document.getElementById('price').value,
+                location: document.getElementById('location').value,
+                bedrooms: document.getElementById('bedrooms').value,
+                bathrooms: document.getElementById('bathrooms').value,
+                area: document.getElementById('area').value,
+                description: document.getElementById('description').value,
+                contactName: document.getElementById('contactName').value,
+                contactPhone: document.getElementById('contactPhone').value,
+                contactEmail: document.getElementById('contactEmail').value,
+                features: []
+            };
+            
+            // Get checked features
+            const featureCheckboxes = addPropertyForm.querySelectorAll('input[type="checkbox"]');
+            featureCheckboxes.forEach(checkbox => {
+                if (checkbox.checked && checkbox.id !== 'termsAgreement') {
+                    formData.features.push(checkbox.nextElementSibling.textContent);
+                }
+            });
+            
+            // Here you would typically send this data to a server
+            console.log('Property Listing Submitted:', formData);
+            
+            alert('Thank you! Your property listing has been submitted successfully. Our team will review it and contact you within 24 hours.');
+            addPropertyModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            addPropertyForm.reset();
+            
+            // Reset radio buttons
+            document.getElementById('forSale').checked = true;
         });
 
         // Phone number reveal functionality - UPDATED FOR ICON ON RIGHT
@@ -1267,6 +1562,17 @@
             // Set minimum date to today for appointment form
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('date').setAttribute('min', today);
+            
+            // Set up image upload preview (basic implementation)
+            const imageUpload = document.getElementById('propertyImages');
+            if (imageUpload) {
+                imageUpload.addEventListener('change', function(e) {
+                    const files = e.target.files;
+                    if (files.length > 10) {
+                        alert('Maximum 10 images allowed. Only the first 10 will be uploaded.');
+                    }
+                });
+            }
         });
 
         // WhatsApp floating button click handler
