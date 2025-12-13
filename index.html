@@ -180,18 +180,22 @@
             gap: 8px;
         }
         
-        /* Property Search Section */
+        /* Property Search Section - FIXED DESIGN */
         .property-search-section {
-            background: linear-gradient(135deg, #1e7e34 0%, #155724 100%);
-            padding: 60px 0;
+            background: #1e7e34; /* Solid dark green */
+            padding: 40px 0 0 0;
             margin-top: 0;
+            position: relative;
+            z-index: 1;
         }
         
         .search-container {
             background: white;
-            border-radius: 15px;
+            border-radius: 15px 15px 0 0;
             padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin-top: -20px;
         }
         
         .search-title {
@@ -393,7 +397,243 @@
             animation: spin 1s linear infinite;
         }
         
-        /* Add Property Modal - ORIGINAL STYLE */
+        /* Moving Advertisement Strip */
+        .advertisement-strip {
+            background: linear-gradient(90deg, #1e7e34 0%, #28a745 50%, #1e7e34 100%);
+            color: white;
+            padding: 15px 0;
+            overflow: hidden;
+            position: relative;
+            margin-top: 0;
+        }
+        
+        .ad-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            animation: scrollText 20s linear infinite;
+        }
+        
+        .ad-content span {
+            font-weight: 600;
+            font-size: 16px;
+            margin: 0 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ad-content i {
+            color: #ffd700;
+        }
+        
+        @keyframes scrollText {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        /* Property Detail Popup Modal */
+        .property-popup-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+        
+        .property-popup-modal .modal-content {
+            max-width: 900px;
+            padding: 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .property-popup-header {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .property-popup-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .property-popup-status {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #1e7e34;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .property-popup-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .property-popup-close:hover {
+            background: rgba(0,0,0,0.8);
+            transform: rotate(90deg);
+        }
+        
+        .property-popup-body {
+            padding: 30px;
+        }
+        
+        .property-popup-price {
+            color: #1e7e34;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .property-popup-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .property-popup-location {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .property-popup-location i {
+            color: #1e7e34;
+        }
+        
+        .property-popup-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+        
+        .property-popup-details {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .property-popup-detail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .property-popup-detail i {
+            color: #1e7e34;
+            font-size: 20px;
+        }
+        
+        .property-popup-detail span {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .property-popup-features {
+            margin-bottom: 25px;
+        }
+        
+        .property-popup-features h5 {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 18px;
+        }
+        
+        .features-grid-popup {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .feature-badge {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #495057;
+        }
+        
+        .property-popup-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .popup-whatsapp-btn {
+            background: #25D366;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        
+        .popup-whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .popup-call-btn {
+            background: #1e7e34;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        
+        .popup-call-btn:hover {
+            background: #155724;
+            transform: translateY(-2px);
+        }
+        
+        /* Add Property Modal */
         .add-property-modal {
             display: none;
             position: fixed;
@@ -628,6 +868,24 @@
             .search-btn {
                 width: 100%;
             }
+            
+            .property-popup-modal .modal-content {
+                width: 95%;
+                margin: 15px auto;
+            }
+            
+            .property-popup-header {
+                height: 300px;
+            }
+            
+            .property-popup-details {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .property-popup-actions {
+                flex-direction: column;
+            }
         }
         
         @media (max-width: 768px) {
@@ -676,6 +934,27 @@
                 gap: 15px;
                 text-align: center;
             }
+            
+            .property-popup-body {
+                padding: 20px;
+            }
+            
+            .property-popup-price {
+                font-size: 24px;
+            }
+            
+            .property-popup-title {
+                font-size: 20px;
+            }
+            
+            .ad-content {
+                animation: scrollText 15s linear infinite;
+            }
+            
+            .ad-content span {
+                font-size: 14px;
+                margin: 0 15px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -694,6 +973,26 @@
             
             .file-upload-area {
                 padding: 20px 15px;
+            }
+            
+            .property-popup-header {
+                height: 200px;
+            }
+            
+            .property-popup-price {
+                font-size: 20px;
+            }
+            
+            .property-popup-title {
+                font-size: 18px;
+            }
+            
+            .property-popup-details {
+                gap: 10px;
+            }
+            
+            .ad-content span {
+                font-size: 12px;
             }
         }
     </style>
@@ -767,6 +1066,22 @@
         </div>
     </div>
     <!-- Header/Hero Section End -->
+
+    <!-- Moving Advertisement Strip -->
+    <div class="advertisement-strip">
+        <div class="ad-content">
+            <span><i class="fas fa-star"></i> Portugal's #1 Real Estate Platform</span>
+            <span><i class="fas fa-home"></i> 1000+ Properties Listed</span>
+            <span><i class="fas fa-users"></i> 5000+ Happy Clients</span>
+            <span><i class="fas fa-award"></i> Certified Real Estate Agents</span>
+            <span><i class="fas fa-shield-alt"></i> 100% Secure Transactions</span>
+            <span><i class="fas fa-star"></i> Portugal's #1 Real Estate Platform</span>
+            <span><i class="fas fa-home"></i> 1000+ Properties Listed</span>
+            <span><i class="fas fa-users"></i> 5000+ Happy Clients</span>
+            <span><i class="fas fa-award"></i> Certified Real Estate Agents</span>
+            <span><i class="fas fa-shield-alt"></i> 100% Secure Transactions</span>
+        </div>
+    </div>
 
     <!-- Property Search Section Start -->
     <section class="property-search-section wow fadeIn" data-wow-delay="0.1s" id="property-search">
@@ -963,7 +1278,64 @@
         </div>
     </div>
 
-    <!-- Add Property Modal - ORIGINAL STYLE -->
+    <!-- Property Detail Popup Modal -->
+    <div id="propertyPopupModal" class="property-popup-modal">
+        <div class="modal-content">
+            <div class="property-popup-header">
+                <img id="popupPropertyImage" src="" alt="Property Image">
+                <div class="property-popup-status" id="popupPropertyStatus">For Sale</div>
+                <div class="property-popup-close">&times;</div>
+            </div>
+            <div class="property-popup-body">
+                <div class="property-popup-price" id="popupPropertyPrice">€450,000</div>
+                <h2 class="property-popup-title" id="popupPropertyTitle">Modern Luxury Apartment in Lisbon</h2>
+                <div class="property-popup-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="popupPropertyLocation">Lisbon, Portugal</span>
+                </div>
+                <p class="property-popup-description" id="popupPropertyDescription">
+                    Stunning 3-bedroom apartment with panoramic city views in prime Lisbon location.
+                </p>
+                
+                <div class="property-popup-details">
+                    <div class="property-popup-detail">
+                        <i class="fas fa-ruler-combined"></i>
+                        <span id="popupPropertyArea">120 m²</span>
+                    </div>
+                    <div class="property-popup-detail">
+                        <i class="fas fa-bed"></i>
+                        <span id="popupPropertyBeds">3 Bedrooms</span>
+                    </div>
+                    <div class="property-popup-detail">
+                        <i class="fas fa-bath"></i>
+                        <span id="popupPropertyBaths">2 Bathrooms</span>
+                    </div>
+                    <div class="property-popup-detail">
+                        <i class="fas fa-building"></i>
+                        <span id="popupPropertyType">Apartment</span>
+                    </div>
+                </div>
+                
+                <div class="property-popup-features">
+                    <h5>Features & Amenities</h5>
+                    <div class="features-grid-popup" id="popupPropertyFeatures">
+                        <!-- Features will be populated here -->
+                    </div>
+                </div>
+                
+                <div class="property-popup-actions">
+                    <button class="popup-whatsapp-btn" id="popupWhatsAppBtn">
+                        <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                    </button>
+                    <button class="popup-call-btn" id="popupCallBtn">
+                        <i class="fas fa-phone"></i> Call Agent
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Property Modal -->
     <div id="addPropertyModal" class="add-property-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1228,14 +1600,14 @@
                 status: "sale",
                 featured: true,
                 image: "img/property-1.jpg",
-                description: "Stunning 3-bedroom apartment with panoramic city views in prime Lisbon location.",
+                description: "Stunning 3-bedroom apartment with panoramic city views in prime Lisbon location. Fully renovated with premium finishes, marble flooring, and smart home features. Located in the heart of the city with easy access to restaurants, shops, and public transportation.",
                 details: {
                     sqft: 120,
                     beds: 3,
                     baths: 2,
                     year: 2020
                 },
-                features: ["Balcony", "Air Conditioning", "Parking", "Elevator"]
+                features: ["Balcony", "Air Conditioning", "Parking", "Elevator", "Smart Home", "Marble Flooring", "Security System", "Walk-in Closet"]
             },
             {
                 id: 2,
@@ -1246,14 +1618,14 @@
                 status: "sale",
                 featured: true,
                 image: "img/property-2.jpg",
-                description: "Luxury 4-bedroom villa with private pool and direct sea views.",
+                description: "Luxury 4-bedroom villa with private infinity pool and direct sea views. Perfect for family living or vacation home. Features include a gourmet kitchen, home theater, wine cellar, and landscaped gardens with Mediterranean plants.",
                 details: {
                     sqft: 280,
                     beds: 4,
                     baths: 3,
                     year: 2018
                 },
-                features: ["Pool", "Garden", "Parking", "AC", "Fireplace"]
+                features: ["Pool", "Garden", "Parking", "AC", "Fireplace", "Home Theater", "Wine Cellar", "BBQ Area", "Sea View", "Private Beach Access"]
             },
             {
                 id: 3,
@@ -1264,14 +1636,14 @@
                 status: "sale",
                 featured: true,
                 image: "img/property-3.jpg",
-                description: "Prime commercial space in Porto's business district.",
+                description: "Prime commercial space in Porto's business district. Ideal for startups or established businesses. Modern open-plan layout with conference rooms, reception area, and high-speed internet infrastructure.",
                 details: {
                     sqft: 180,
                     beds: 0,
                     baths: 2,
                     year: 2021
                 },
-                features: ["AC", "Elevator", "Storage", "Parking"]
+                features: ["AC", "Elevator", "Storage", "Parking", "High-Speed Internet", "Conference Room", "Reception Area", "Security", "Kitchenette"]
             },
             {
                 id: 4,
@@ -1282,14 +1654,14 @@
                 status: "rent",
                 featured: true,
                 image: "img/property-4.jpg",
-                description: "Fully furnished 2-bedroom apartment in prime location.",
+                description: "Fully furnished 2-bedroom apartment in prime location. Perfect for professionals or small families. Recently renovated with modern appliances, hardwood floors, and large windows offering plenty of natural light.",
                 details: {
                     sqft: 95,
                     beds: 2,
                     baths: 1,
                     year: 2019
                 },
-                features: ["Furnished", "Balcony", "AC", "Elevator", "WiFi"]
+                features: ["Furnished", "Balcony", "AC", "Elevator", "WiFi", "Modern Kitchen", "Hardwood Floors", "Utilities Included", "Laundry"]
             },
             {
                 id: 5,
@@ -1300,14 +1672,14 @@
                 status: "sale",
                 featured: true,
                 image: "img/property-5.jpg",
-                description: "Charming renovated townhouse in historic center.",
+                description: "Charming renovated townhouse in historic center. Perfect blend of traditional architecture with modern amenities. Features original stone walls, wooden beams, and a private courtyard.",
                 details: {
                     sqft: 160,
                     beds: 3,
                     baths: 2,
                     year: 2015
                 },
-                features: ["Garden", "Fireplace", "Storage", "Parking"]
+                features: ["Garden", "Fireplace", "Storage", "Parking", "Courtyard", "Original Features", "Renovated Kitchen", "Historical Building", "Central Heating"]
             },
             {
                 id: 6,
@@ -1318,18 +1690,18 @@
                 status: "sale",
                 featured: true,
                 image: "img/property-6.jpg",
-                description: "Exclusive penthouse with private terrace and pool.",
+                description: "Exclusive penthouse with private terrace and panoramic city views. Top floor luxury living with premium finishes throughout. Features include a private elevator, home automation system, and 360-degree views of Lisbon.",
                 details: {
                     sqft: 320,
                     beds: 4,
                     baths: 3,
                     year: 2022
                 },
-                features: ["Pool", "Balcony", "AC", "Elevator", "Parking", "Fireplace"]
+                features: ["Pool", "Balcony", "AC", "Elevator", "Parking", "Fireplace", "Private Terrace", "Home Automation", "Wine Storage", "Gym", "Sauna"]
             }
         ];
 
-        // DOM Elements for Property Search
+        // DOM Elements
         const searchKeyword = document.getElementById('searchKeyword');
         const propertyTypeFilter = document.getElementById('propertyTypeFilter');
         const locationFilter = document.getElementById('locationFilter');
@@ -1346,24 +1718,23 @@
         const propertyTabs = document.querySelectorAll('.property-tab');
         const sortProperties = document.getElementById('sortProperties');
         const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const propertyPopupModal = document.getElementById('propertyPopupModal');
+        const propertyPopupClose = document.querySelector('.property-popup-close');
 
-        // DOM Elements for Add Property Modal
-        const appointmentModal = document.getElementById('appointmentModal');
-        const addPropertyModal = document.getElementById('addPropertyModal');
-        const addPropertyBtn = document.getElementById('addPropertyBtn');
-        const closeModalBtns = document.querySelectorAll('.close-modal');
-        const appointmentForm = document.getElementById('appointmentForm');
-        const addPropertyForm = document.getElementById('addPropertyForm');
-        const welcomeMessage = document.getElementById('welcomeMessage');
-        const fileUploadArea = document.getElementById('fileUploadArea');
-        const propertyImagesInput = document.getElementById('propertyImages');
-        const filePreview = document.getElementById('filePreview');
-        const rentalFields = document.getElementById('rentalFields');
-        const submitBtn = document.getElementById('submitBtn');
-
-        // Phone buttons
-        const headerPhoneBtn = document.getElementById('headerPhoneBtn');
-        const appointmentBtn = document.querySelector('.cta-appointment-btn');
+        // Property popup elements
+        const popupPropertyImage = document.getElementById('popupPropertyImage');
+        const popupPropertyStatus = document.getElementById('popupPropertyStatus');
+        const popupPropertyPrice = document.getElementById('popupPropertyPrice');
+        const popupPropertyTitle = document.getElementById('popupPropertyTitle');
+        const popupPropertyLocation = document.getElementById('popupPropertyLocation');
+        const popupPropertyDescription = document.getElementById('popupPropertyDescription');
+        const popupPropertyArea = document.getElementById('popupPropertyArea');
+        const popupPropertyBeds = document.getElementById('popupPropertyBeds');
+        const popupPropertyBaths = document.getElementById('popupPropertyBaths');
+        const popupPropertyType = document.getElementById('popupPropertyType');
+        const popupPropertyFeatures = document.getElementById('popupPropertyFeatures');
+        const popupWhatsAppBtn = document.getElementById('popupWhatsAppBtn');
+        const popupCallBtn = document.getElementById('popupCallBtn');
 
         // Current filter state
         let currentFilters = {
@@ -1378,6 +1749,9 @@
             limit: 6,
             offset: 0
         };
+
+        // Currently displayed properties
+        let currentProperties = [];
 
         // Initialize the page
         function init() {
@@ -1429,82 +1803,47 @@
                 loadMoreBtn.addEventListener('click', loadMoreProperties);
             }
             
-            // Phone reveal buttons
-            setupPhoneReveal();
-            
-            // Appointment button
-            if (appointmentBtn) {
-                appointmentBtn.addEventListener('click', () => {
-                    appointmentModal.style.display = 'block';
-                    document.body.style.overflow = 'hidden';
-                });
-            }
-        }
-
-        // Setup modal functionality
-        function setupModals() {
-            // Check if it's first visit for Add Property modal
-            if (!localStorage.getItem('rentCasaPT_firstVisit')) {
-                setTimeout(() => {
-                    addPropertyModal.style.display = 'block';
-                    document.body.style.overflow = 'hidden';
-                    localStorage.setItem('rentCasaPT_firstVisit', 'true');
-                }, 1500);
-            } else {
-                welcomeMessage.style.display = 'none';
-            }
-            
-            // Add Property modal open/close
-            addPropertyBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                addPropertyModal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                welcomeMessage.style.display = 'none';
+            // Property popup close
+            propertyPopupClose.addEventListener('click', () => {
+                propertyPopupModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             });
             
-            // Close all modals
-            closeModalBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    appointmentModal.style.display = 'none';
-                    addPropertyModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                });
-            });
-            
-            // Close modal when clicking outside
+            // Close popup when clicking outside
             window.addEventListener('click', (e) => {
-                if (e.target === appointmentModal || e.target === addPropertyModal) {
-                    appointmentModal.style.display = 'none';
-                    addPropertyModal.style.display = 'none';
+                if (e.target === propertyPopupModal) {
+                    propertyPopupModal.style.display = 'none';
                     document.body.style.overflow = 'auto';
                 }
             });
             
-            // Appointment form submission
-            appointmentForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Thank you! Your appointment request has been submitted. We will contact you shortly to confirm.');
-                appointmentModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                appointmentForm.reset();
+            // Popup action buttons
+            popupWhatsAppBtn.addEventListener('click', () => {
+                const propertyTitle = popupPropertyTitle.textContent;
+                window.open(`https://wa.me/351920326572?text=Hello%20RentCasaPT,%20I%20am%20interested%20in%20${encodeURIComponent(propertyTitle)}`, '_blank');
             });
             
-            // Transaction type change
-            document.querySelectorAll('input[name="transactionType"]').forEach(radio => {
-                radio.addEventListener('change', (e) => {
-                    rentalFields.style.display = e.target.value === 'rent' ? 'block' : 'none';
-                });
+            popupCallBtn.addEventListener('click', () => {
+                window.location.href = 'tel:+351920326572';
             });
-            
-            // File upload
-            fileUploadArea.addEventListener('click', () => propertyImagesInput.click());
-            propertyImagesInput.addEventListener('change', handleFileSelection);
-            
-            // Add Property form submission
-            addPropertyForm.addEventListener('submit', handleFormSubmit);
         }
 
-        // Get filtered properties based on current filters
+        // Setup modals
+        function setupModals() {
+            // Check if it's first visit for Add Property modal
+            if (!localStorage.getItem('rentCasaPT_firstVisit')) {
+                setTimeout(() => {
+                    document.getElementById('addPropertyModal').style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                    localStorage.setItem('rentCasaPT_firstVisit', 'true');
+                }, 1500);
+            }
+            
+            // Setup other modal functionality...
+            // (Your existing modal setup code)
+        }
+
+        // Get filtered properties
         function getFilteredProperties() {
             let filtered = [...properties];
             
@@ -1586,11 +1925,12 @@
             }
         }
 
-        // Render properties to the page
+        // Render properties
         function renderProperties(filteredProperties, append = false) {
             if (!append) {
                 propertyContainer.innerHTML = '';
                 currentFilters.offset = 0;
+                currentProperties = [];
             }
             
             if (filteredProperties.length === 0) {
@@ -1608,25 +1948,30 @@
             
             // Get properties to show
             const propertiesToShow = filteredProperties.slice(currentFilters.offset, currentFilters.offset + currentFilters.limit);
+            currentProperties = [...currentProperties, ...propertiesToShow];
             
             propertiesToShow.forEach(property => {
                 const propertyElement = createPropertyElement(property);
                 propertyContainer.appendChild(propertyElement);
             });
             
-            // Update load more button visibility
-            if (currentFilters.offset + propertiesToShow.length < filteredProperties.length) {
+            // Update load more button
+            if (currentProperties.length < filteredProperties.length) {
                 loadMoreBtn.style.display = 'block';
             } else {
                 loadMoreBtn.style.display = 'none';
             }
+            
+            // Add click event to property cards
+            addPropertyCardListeners();
         }
 
-        // Create property card HTML
+        // Create property element
         function createPropertyElement(property) {
             const div = document.createElement('div');
-            div.className = 'col-lg-4 col-md-6 wow fadeInUp';
+            div.className = 'col-lg-4 col-md-6 wow fadeInUp property-card';
             div.setAttribute('data-wow-delay', '0.1s');
+            div.setAttribute('data-property-id', property.id);
             
             const priceType = property.status === 'rent' ? '/month' : '';
             const statusText = property.status === 'rent' ? 'For Rent' : 'For Sale';
@@ -1635,24 +1980,17 @@
             div.innerHTML = `
                 <div class="property-item rounded overflow-hidden">
                     <div class="position-relative overflow-hidden">
-                        <a href="property-detail.html?id=${property.id}">
-                            <img class="img-fluid" src="${property.image}" alt="${property.title}">
-                        </a>
+                        <img class="img-fluid property-image" src="${property.image}" alt="${property.title}" style="height: 200px; width: 100%; object-fit: cover;">
                         <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
                             ${statusText}
                         </div>
                     </div>
                     <div class="p-4 pb-0">
-                        <h5 class="text-primary mb-3">
+                        <h5 class="text-primary mb-3 property-price">
                             €${property.status === 'rent' ? property.price + '/month' : property.price.toLocaleString()}
                         </h5>
-                        <a class="d-block h5 mb-2" href="property-detail.html?id=${property.id}">
-                            ${property.title}
-                        </a>
-                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>
-                            ${locationText}, Portugal
-                        </p>
-                        <p class="text-muted small">${property.description}</p>
+                        <h6 class="property-title">${property.title}</h6>
+                                                <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${locationText}</p>
                     </div>
                     <div class="d-flex border-top">
                         <small class="flex-fill text-center border-end py-2">
@@ -1665,20 +2003,78 @@
                             <i class="fa fa-bath text-primary me-2"></i>${property.details.baths} Bath
                         </small>
                     </div>
+                    <div class="property-features d-none">
+                        ${property.features.map(feature => `<span>${feature}</span>`).join('')}
+                    </div>
                 </div>
             `;
             
             return div;
         }
 
+        // Add click listeners to property cards
+        function addPropertyCardListeners() {
+            document.querySelectorAll('.property-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (!e.target.closest('a') && !e.target.closest('button')) {
+                        const propertyId = parseInt(this.dataset.propertyId);
+                        const property = properties.find(p => p.id === propertyId);
+                        if (property) {
+                            showPropertyPopup(property);
+                        }
+                    }
+                });
+            });
+        }
+
+        // Show property popup
+        function showPropertyPopup(property) {
+            const priceType = property.status === 'rent' ? '/month' : '';
+            const statusText = property.status === 'rent' ? 'For Rent' : 'For Sale';
+            const locationText = property.location.charAt(0).toUpperCase() + property.location.slice(1);
+            
+            // Update popup content
+            popupPropertyImage.src = property.image;
+            popupPropertyImage.alt = property.title;
+            popupPropertyStatus.textContent = statusText;
+            popupPropertyPrice.textContent = `€${property.status === 'rent' ? property.price + '/month' : property.price.toLocaleString()}`;
+            popupPropertyTitle.textContent = property.title;
+            popupPropertyLocation.textContent = locationText;
+            popupPropertyDescription.textContent = property.description;
+            popupPropertyArea.textContent = `${property.details.sqft} m²`;
+            popupPropertyBeds.textContent = `${property.details.beds} Bedrooms`;
+            popupPropertyBaths.textContent = `${property.details.baths} Bathrooms`;
+            popupPropertyType.textContent = property.type.charAt(0).toUpperCase() + property.type.slice(1);
+            
+            // Update features
+            popupPropertyFeatures.innerHTML = '';
+            property.features.forEach(feature => {
+                const span = document.createElement('span');
+                span.className = 'feature-badge';
+                span.textContent = feature;
+                popupPropertyFeatures.appendChild(span);
+            });
+            
+            // Update WhatsApp message
+            const whatsappMessage = `Hello RentCasaPT, I am interested in your property: "${property.title}" (ID: ${property.id})`;
+            popupWhatsAppBtn.onclick = () => {
+                window.open(`https://wa.me/351920326572?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+            };
+            
+            // Show popup
+            propertyPopupModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
         // Perform search
         function performSearch() {
-            // Update filters from form inputs
-            currentFilters.keyword = searchKeyword.value.toLowerCase();
+            // Update current filters
+            currentFilters.keyword = searchKeyword.value.trim();
             currentFilters.type = propertyTypeFilter.value;
             currentFilters.location = locationFilter.value;
             currentFilters.bedrooms = bedroomsFilter.value;
             currentFilters.transaction = transactionType.value;
+            currentFilters.offset = 0;
             
             // Show loading
             searchLoading.style.display = 'flex';
@@ -1686,37 +2082,35 @@
             
             // Simulate search delay
             setTimeout(() => {
-                renderProperties(getFilteredProperties());
+                const filteredProperties = getFilteredProperties();
+                renderProperties(filteredProperties);
                 updateResultsCounter();
                 searchLoading.style.display = 'none';
+                
+                // Scroll to properties section
+                document.getElementById('featured-properties').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }, 500);
         }
 
         // Update results counter
         function updateResultsCounter() {
             const filteredProperties = getFilteredProperties();
-            const totalResults = filteredProperties.length;
-            const showingResults = Math.min(totalResults, currentFilters.offset + currentFilters.limit);
-            
-            resultsCount.textContent = `${showingResults} of ${totalResults} Properties Found`;
+            const count = filteredProperties.length;
+            resultsCount.textContent = `${count} Property${count !== 1 ? 's' : ''} Found`;
             
             // Build active filters text
-            const activeFiltersArray = [];
-            if (currentFilters.keyword) activeFiltersArray.push(`Search: "${currentFilters.keyword}"`);
-            if (currentFilters.type) activeFiltersArray.push(`Type: ${propertyTypeFilter.options[propertyTypeFilter.selectedIndex].text}`);
-            if (currentFilters.location) activeFiltersArray.push(`Location: ${locationFilter.options[locationFilter.selectedIndex].text}`);
-            if (currentFilters.price !== 'all') activeFiltersArray.push(`Price: ${document.querySelector('.price-badge.active').textContent}`);
-            if (currentFilters.bedrooms) activeFiltersArray.push(`Bedrooms: ${bedroomsFilter.options[bedroomsFilter.selectedIndex].text}`);
-            if (currentFilters.transaction) activeFiltersArray.push(`For: ${transactionType.options[transactionType.selectedIndex].text}`);
+            const filters = [];
+            if (currentFilters.keyword) filters.push(`Keyword: "${currentFilters.keyword}"`);
+            if (currentFilters.type) filters.push(`Type: ${propertyTypeFilter.options[propertyTypeFilter.selectedIndex].text}`);
+            if (currentFilters.location) filters.push(`Location: ${locationFilter.options[locationFilter.selectedIndex].text}`);
+            if (currentFilters.price !== 'all') filters.push(`Price: ${document.querySelector('.price-badge.active').textContent}`);
+            if (currentFilters.bedrooms) filters.push(`Bedrooms: ${bedroomsFilter.options[bedroomsFilter.selectedIndex].text}`);
+            if (currentFilters.transaction) filters.push(`${transactionType.options[transactionType.selectedIndex].text}`);
             
-            activeFilters.textContent = activeFiltersArray.length > 0 ? `Active filters: ${activeFiltersArray.join(', ')}` : '';
-            
-            // Show/hide results counter
-            if (activeFiltersArray.length > 0 || currentFilters.status !== 'all') {
-                resultsCounter.classList.add('show');
-            } else {
-                resultsCounter.classList.remove('show');
-            }
+            activeFilters.textContent = filters.length > 0 ? `Active filters: ${filters.join(', ')}` : 'No filters applied';
         }
 
         // Clear all filters
@@ -1726,23 +2120,17 @@
             locationFilter.value = '';
             bedroomsFilter.value = '';
             transactionType.value = '';
+            
+            // Reset price badges
+            priceBadges.forEach(badge => badge.classList.remove('active'));
+            priceBadges[0].classList.add('active');
+            
+            // Reset property tabs
+            propertyTabs.forEach(tab => tab.classList.remove('active'));
+            propertyTabs[0].classList.add('active');
+            
+            // Reset sort dropdown
             sortProperties.value = 'featured';
-            
-            // Reset price filter
-            priceBadges.forEach(badge => {
-                badge.classList.remove('active');
-                if (badge.dataset.price === 'all') {
-                    badge.classList.add('active');
-                }
-            });
-            
-            // Reset tab filter
-            propertyTabs.forEach(tab => {
-                tab.classList.remove('active');
-                if (tab.dataset.filter === 'all') {
-                    tab.classList.add('active');
-                }
-            });
             
             // Reset current filters
             currentFilters = {
@@ -1758,9 +2146,8 @@
                 offset: 0
             };
             
-            renderProperties(getFilteredProperties());
-            updateResultsCounter();
-            resultsCounter.classList.remove('show');
+            // Perform search
+            performSearch();
         }
 
         // Load more properties
@@ -1768,125 +2155,333 @@
             currentFilters.offset += currentFilters.limit;
             const filteredProperties = getFilteredProperties();
             renderProperties(filteredProperties, true);
-            updateResultsCounter();
         }
 
-        // File upload handling
-        function handleFileSelection() {
-            const files = Array.from(propertyImagesInput.files);
+        // Add Property Modal Functionality
+        const addPropertyModal = document.getElementById('addPropertyModal');
+        const addPropertyBtn = document.getElementById('addPropertyBtn');
+        const closePropertyModal = document.querySelector('.close-property-modal');
+        const addPropertyForm = document.getElementById('addPropertyForm');
+        const forSaleRadio = document.getElementById('forSale');
+        const forRentRadio = document.getElementById('forRent');
+        const rentalFields = document.getElementById('rentalFields');
+        const fileUploadArea = document.getElementById('fileUploadArea');
+        const propertyImagesInput = document.getElementById('propertyImages');
+        const filePreview = document.getElementById('filePreview');
+
+        // Show Add Property Modal
+        addPropertyBtn.addEventListener('click', () => {
+            addPropertyModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close Add Property Modal
+        closePropertyModal.addEventListener('click', () => {
+            addPropertyModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === addPropertyModal) {
+                addPropertyModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Toggle rental fields
+        forSaleRadio.addEventListener('change', () => {
+            rentalFields.style.display = 'none';
+        });
+
+        forRentRadio.addEventListener('change', () => {
+            rentalFields.style.display = 'block';
+        });
+
+        // File upload functionality
+        fileUploadArea.addEventListener('click', () => {
+            propertyImagesInput.click();
+        });
+
+        propertyImagesInput.addEventListener('change', handleFileSelect);
+
+        function handleFileSelect(e) {
+            const files = e.target.files;
             filePreview.innerHTML = '';
             
-            files.slice(0, 10).forEach((file, index) => {
-                if (!file.type.startsWith('image/')) {
-                    alert(`File "${file.name}" is not an image.`);
-                    return;
-                }
-                
-                if (file.size > 5 * 1024 * 1024) {
-                    alert(`File "${file.name}" is too large (max 5MB).`);
-                    return;
-                }
-                
+            for (let i = 0; i < Math.min(files.length, 10); i++) {
+                const file = files[i];
                 const reader = new FileReader();
-                reader.onload = (e) => {
+                
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.style.width = '100%';
+                    img.style.height = '100%';
+                    img.style.objectFit = 'cover';
+                    
                     const previewItem = document.createElement('div');
                     previewItem.className = 'file-preview-item';
-                    previewItem.innerHTML = `
-                        <img src="${e.target.result}" alt="Preview">
-                        <div class="position-absolute top-0 end-0 p-1">
-                            <button type="button" class="btn btn-danger btn-sm" onclick="this.parentElement.parentElement.remove()">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    `;
+                    previewItem.appendChild(img);
+                    
+                    const removeBtn = document.createElement('button');
+                    removeBtn.innerHTML = '&times;';
+                    removeBtn.style.position = 'absolute';
+                    removeBtn.style.top = '2px';
+                    removeBtn.style.right = '2px';
+                    removeBtn.style.background = 'rgba(0,0,0,0.5)';
+                    removeBtn.style.color = 'white';
+                    removeBtn.style.border = 'none';
+                    removeBtn.style.borderRadius = '50%';
+                    removeBtn.style.width = '20px';
+                    removeBtn.style.height = '20px';
+                    removeBtn.style.fontSize = '12px';
+                    removeBtn.style.cursor = 'pointer';
+                    
+                    removeBtn.addEventListener('click', (event) => {
+                        event.stopPropagation();
+                        previewItem.remove();
+                    });
+                    
+                    previewItem.appendChild(removeBtn);
                     filePreview.appendChild(previewItem);
                 };
+                
                 reader.readAsDataURL(file);
-            });
-            
-            if (files.length > 10) {
-                alert('Maximum 10 images allowed.');
             }
         }
 
-        // Form submission handling
-        async function handleFormSubmit(e) {
+        // Form validation and submission
+        addPropertyForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Validate form
+            // Reset validation
+            document.querySelectorAll('.form-control, .form-select').forEach(el => {
+                el.classList.remove('is-invalid');
+            });
+            
             let isValid = true;
-            const requiredFields = addPropertyForm.querySelectorAll('[required]');
-            requiredFields.forEach(field => {
-                field.classList.remove('is-invalid');
+            
+            // Validate required fields
+            const requiredFields = ['propertyType', 'title', 'price', 'location', 'description', 'contactName', 'contactPhone', 'contactEmail'];
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
                 if (!field.value.trim()) {
                     field.classList.add('is-invalid');
                     isValid = false;
                 }
             });
             
-            if (!isValid) {
-                alert('Please fill in all required fields correctly.');
-                return;
+            // Validate terms agreement
+            const termsAgreement = document.getElementById('termsAgreement');
+            if (!termsAgreement.checked) {
+                termsAgreement.classList.add('is-invalid');
+                isValid = false;
             }
             
-            // Show loading state
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<span class="spinner"></span> Submitting...';
-            submitBtn.disabled = true;
-            
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            // Get form data
-            const formData = {
-                transactionType: document.querySelector('input[name="transactionType"]:checked').value,
-                propertyType: document.getElementById('propertyType').value,
-                title: document.getElementById('title').value,
-                price: document.getElementById('price').value,
-                location: document.getElementById('location').value,
-                description: document.getElementById('description').value,
-                contactName: document.getElementById('contactName').value,
-                contactPhone: document.getElementById('contactPhone').value,
-                contactEmail: document.getElementById('contactEmail').value
-            };
-            
-            console.log('Property Listing Submitted:', formData);
-            
-            // Show success message
-            alert('🎉 Thank you! Your property listing has been submitted successfully. Our team will review it and contact you within 24 hours.');
-            
-            // Reset form and close modal
-            addPropertyForm.reset();
-            filePreview.innerHTML = '';
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-            addPropertyModal.style.display = 'none';
+            if (isValid) {
+                // Collect form data
+                const formData = {
+                    transactionType: document.querySelector('input[name="transactionType"]:checked').value,
+                    propertyType: document.getElementById('propertyType').value,
+                    title: document.getElementById('title').value,
+                    price: document.getElementById('price').value,
+                    location: document.getElementById('location').value,
+                    bedrooms: document.getElementById('bedrooms').value,
+                    bathrooms: document.getElementById('bathrooms').value,
+                    area: document.getElementById('area').value,
+                    rentalPeriod: document.getElementById('rentalPeriod').value,
+                    securityDeposit: document.getElementById('securityDeposit').value,
+                    description: document.getElementById('description').value,
+                    contactName: document.getElementById('contactName').value,
+                    contactPhone: document.getElementById('contactPhone').value,
+                    contactEmail: document.getElementById('contactEmail').value,
+                    features: Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.nextElementSibling.textContent)
+                };
+                
+                // Simulate form submission
+                const submitBtn = addPropertyForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Submitting...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    // Show success message
+                    alert('Thank you! Your property has been submitted for review. Our team will contact you shortly.');
+                    
+                    // Reset form
+                    addPropertyForm.reset();
+                    filePreview.innerHTML = '';
+                    propertyImagesInput.value = '';
+                    
+                    // Close modal
+                    addPropertyModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 1500);
+            }
+        });
+
+        // Initialize form validation on input
+        document.querySelectorAll('.form-control, .form-select').forEach(el => {
+            el.addEventListener('input', function() {
+                this.classList.remove('is-invalid');
+            });
+        });
+
+        // Appointment Modal Functionality
+        const appointmentModal = document.getElementById('appointmentModal');
+        const closeModal = document.querySelector('.close-modal');
+        const appointmentForm = document.getElementById('appointmentForm');
+
+        // Setup appointment modal triggers (if any exist)
+        document.querySelectorAll('.appointment-trigger').forEach(btn => {
+            btn.addEventListener('click', () => {
+                appointmentModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close appointment modal
+        closeModal.addEventListener('click', () => {
+            appointmentModal.style.display = 'none';
             document.body.style.overflow = 'auto';
-        }
+        });
 
-        // Phone reveal functionality
-        function setupPhoneReveal() {
-            if (headerPhoneBtn) {
-                headerPhoneBtn.addEventListener('click', function() {
-                    const phoneNumber = this.parentElement.querySelector('.phone-number');
-                    const icon = this.querySelector('i');
-                    if (phoneNumber.style.display === 'block') {
-                        phoneNumber.style.display = 'none';
-                        icon.className = 'fa fa-phone-alt ms-2';
-                    } else {
-                        phoneNumber.style.display = 'block';
-                        icon.className = 'fa fa-phone ms-2';
-                        setTimeout(() => {
-                            phoneNumber.style.display = 'none';
-                            icon.className = 'fa fa-phone-alt ms-2';
-                        }, 30000);
-                    }
-                });
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === appointmentModal) {
+                appointmentModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
+        });
+
+        // Appointment form submission
+        appointmentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! Your appointment request has been submitted. We will contact you shortly to confirm.');
+            appointmentForm.reset();
+            appointmentModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Phone number reveal functionality
+        const phoneRevealBtn = document.getElementById('headerPhoneBtn');
+        const phoneNumber = document.getElementById('headerPhoneNumber');
+        
+        if (phoneRevealBtn) {
+            phoneRevealBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                phoneNumber.style.display = 'block';
+                this.style.display = 'none';
+                
+                // After 30 seconds, hide the number again
+                setTimeout(() => {
+                    phoneNumber.style.display = 'none';
+                    phoneRevealBtn.style.display = 'inline-flex';
+                }, 30000);
+            });
         }
 
-        // Initialize when page loads
+        // WhatsApp Floating Button
+        const whatsappFloat = document.createElement('div');
+        whatsappFloat.className = 'whatsapp-float';
+        whatsappFloat.innerHTML = '<i class="fab fa-whatsapp"></i>';
+        whatsappFloat.title = 'Chat with us on WhatsApp';
+        document.body.appendChild(whatsappFloat);
+
+        whatsappFloat.addEventListener('click', () => {
+            window.open('https://wa.me/351920326572?text=Hello%20RentCasaPT,%20I%20would%20like%20to%20know%20more%20about%20your%20properties', '_blank');
+        });
+
+        // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', init);
     </script>
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Get In Touch</h5>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, Lisbon, Portugal</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+351 920326572</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@rentcasapt.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <a class="btn btn-link text-white-50" href="about.html">About Us</a>
+                    <a class="btn btn-link text-white-50" href="contact.html">Contact Us</a>
+                    <a class="btn btn-link text-white-50" href="property-list.html">Properties</a>
+                    <a class="btn btn-link text-white-50" href="services.html">Our Services</a>
+                    <a class="btn btn-link text-white-50" href="#">Privacy Policy</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Photo Gallery</h5>
+                    <div class="row g-2 pt-2">
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" src="img/property-1.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" src="img/property-2.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" src="img/property-3.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" src="img/property-4.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" src="img/property-5.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" src="img/property-6.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p>Subscribe to our newsletter for the latest property listings and real estate insights in Portugal.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">RentCasaPT</a>, All Right Reserved. 
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="index.html">Home</a>
+                            <a href="contact.html">Contact</a>
+                            <a href="#">Help</a>
+                            <a href="#">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
 </body>
+
 </html>
