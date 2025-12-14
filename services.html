@@ -169,18 +169,26 @@
             background-color: var(--dark-green) !important;
         }
         
-        /* Header Background */
+        /* Header/Hero Section - WHITE BACKGROUND */
         .header {
-            background: linear-gradient(to right, var(--dark-green), var(--medium-green));
-            color: white;
+            background-color: white !important;
+            color: #333;
         }
         
-        .header h1, .header .breadcrumb-item a {
-            color: white !important;
+        .header h1 {
+            color: var(--dark-green) !important;
+        }
+        
+        .header .breadcrumb-item a {
+            color: var(--dark-green) !important;
         }
         
         .header .breadcrumb-item.active {
-            color: var(--light-green) !important;
+            color: #666 !important;
+        }
+        
+        .header .breadcrumb-item a:hover {
+            color: var(--medium-green) !important;
         }
         
         /* WhatsApp Button */
@@ -241,15 +249,61 @@
             border-top: 3px solid var(--dark-green);
         }
         
-        /* FAQ Section */
-        .accordion-button:not(.collapsed) {
+        /* FAQ Section - HOVER FUNCTIONALITY */
+        .accordion-hover .accordion-item {
+            margin-bottom: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 0.375rem;
+            overflow: hidden;
+        }
+        
+        .accordion-hover .accordion-button {
+            background-color: white;
+            color: var(--dark-green);
+            padding: 1rem 1.25rem;
+            font-weight: 500;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-hover .accordion-button:not(.collapsed) {
+            background-color: var(--light-green);
+            color: var(--dark-green);
+            box-shadow: none;
+        }
+        
+        .accordion-hover .accordion-button:hover {
             background-color: var(--light-green);
             color: var(--dark-green);
         }
         
-        .accordion-button:focus {
-            border-color: var(--medium-green);
+        .accordion-hover .accordion-button:focus {
             box-shadow: 0 0 0 0.25rem rgba(6, 78, 59, 0.25);
+            border-color: var(--medium-green);
+        }
+        
+        .accordion-hover .accordion-collapse {
+            transition: height 0.3s ease;
+        }
+        
+        .accordion-hover .accordion-body {
+            padding: 1rem 1.25rem;
+            background-color: #f8f9fa;
+        }
+        
+        /* Hover functionality - opens on hover, closes when mouse leaves */
+        .accordion-hover .accordion-item:hover .accordion-collapse {
+            display: block !important;
+            height: auto !important;
+        }
+        
+        .accordion-hover .accordion-item:hover .accordion-button {
+            background-color: var(--light-green);
+            color: var(--dark-green);
+        }
+        
+        .accordion-hover .accordion-item:hover .accordion-button::after {
+            transform: rotate(180deg);
         }
         
         /* Footer Updates */
@@ -269,6 +323,19 @@
                 bottom: 20px;
                 right: 20px;
                 font-size: 25px;
+            }
+            
+            /* Disable hover effects on mobile, use click instead */
+            .accordion-hover .accordion-item:hover .accordion-collapse {
+                display: none !important;
+            }
+            
+            .accordion-hover .accordion-item:hover .accordion-button {
+                background-color: white !important;
+            }
+            
+            .accordion-hover .accordion-item .accordion-collapse.collapse.show {
+                display: block !important;
             }
         }
     </style>
@@ -331,11 +398,12 @@
         <!-- Navbar End -->
 
 
-        <!-- Header/Hero Start -->
+        <!-- Header/Hero Start - WHITE BACKGROUND -->
         <div class="container-fluid header bg-white p-0">
             <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
                 <div class="col-md-6 p-5 mt-lg-5">
                     <h1 class="display-5 animated fadeIn mb-4">Our Services</h1> 
+                    <p class="animated fadeIn mb-4">Discover our comprehensive real estate services designed to meet all your property needs in Portugal.</p>
                     <nav aria-label="breadcrumb animated fadeIn">
                         <ol class="breadcrumb text-uppercase">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -344,7 +412,7 @@
                     </nav>
                 </div>
                 <div class="col-md-6 animated fadeIn">
-                    <img class="img-fluid" src="img/header.jpg" alt="">
+                    <img class="img-fluid" src="img/header.jpg" alt="RentCasaPT Services">
                 </div>
             </div>
         </div>
@@ -717,23 +785,23 @@
         </div>
         <!-- Call to Action End -->
 
-        <!-- FAQ Start -->
+        <!-- FAQ Start - WITH HOVER FUNCTIONALITY -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                     <h1 class="mb-3">Frequently Asked Questions</h1>
-                    <p>Find answers to common questions about our services and processes.</p>
+                    <p>Find answers to common questions about our services and processes. <strong>Hover over any question to see the answer.</strong></p>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="accordion" id="accordionExample1">
+                        <div class="accordion accordion-hover" id="accordionExample1">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                         What fees do you charge for property sales?
                                     </button>
                                 </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample1">
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample1">
                                     <div class="accordion-body">
                                         Our commission for property sales is competitive and transparent, typically ranging from 3% to 5% depending on the property value and services required. We provide a detailed breakdown of all fees during our initial consultation with no hidden charges.
                                     </div>
@@ -766,14 +834,14 @@
                         </div>
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="accordion" id="accordionExample2">
+                        <div class="accordion accordion-hover" id="accordionExample2">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingFour">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                         How long does the buying process typically take?
                                     </button>
                                 </h2>
-                                <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#accordionExample2">
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample2">
                                     <div class="accordion-body">
                                         The property buying process in Portugal typically takes 2-3 months from offer acceptance to completion. This includes due diligence, mortgage approval (if applicable), and legal paperwork. Cash purchases can sometimes be completed in 4-6 weeks.
                                     </div>
@@ -905,7 +973,7 @@
     <!-- Optional: Add click functionality for mobile -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Add click functionality for mobile devices
+            // Add click functionality for mobile devices for flip cards
             const flipCards = document.querySelectorAll('.flip-card-container');
             
             flipCards.forEach(card => {
@@ -926,6 +994,23 @@
                 }
             `;
             document.head.appendChild(style);
+            
+            // FAQ hover functionality for desktop
+            const faqItems = document.querySelectorAll('.accordion-hover .accordion-item');
+            
+            faqItems.forEach(item => {
+                // For desktop devices, disable Bootstrap's click toggle
+                if (window.innerWidth > 768) {
+                    const button = item.querySelector('.accordion-button');
+                    const collapse = item.querySelector('.accordion-collapse');
+                    
+                    // Prevent Bootstrap from handling clicks on desktop
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    });
+                }
+            });
         });
     </script>
 </body>
