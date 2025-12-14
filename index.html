@@ -2481,7 +2481,249 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+<!-- Add this script section at the end of your file, before the closing body tag -->
+<script>
+    // Setup modals - MODIFIED TO SHOW ADD PROPERTY MODAL ON PAGE LOAD
+    function setupModals() {
+        // SHOW ADD PROPERTY MODAL AUTOMATICALLY WHEN PAGE LOADS
+        setTimeout(() => {
+            const addPropertyModal = document.getElementById('addPropertyModal');
+            const closePropertyModal = document.querySelector('.close-property-modal');
+            
+            // Show the modal
+            addPropertyModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Setup close button
+            closePropertyModal.addEventListener('click', () => {
+                addPropertyModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === addPropertyModal) {
+                    addPropertyModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Don't use localStorage check - show it every time page loads
+            // This ensures the modal appears for every visitor
+        }, 1500); // Show after 1.5 seconds delay
+        
+        // Appointment modal functionality
+        const appointmentModal = document.getElementById('appointmentModal');
+        const appointmentBtn = document.getElementById('appointmentBtn');
+        const closeModal = document.querySelector('.close-modal');
+        const appointmentForm = document.getElementById('appointmentForm');
+        
+        appointmentBtn.addEventListener('click', () => {
+            appointmentModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            appointmentModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        appointmentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! Your appointment request has been submitted. We will contact you shortly to confirm.');
+            appointmentModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            appointmentForm.reset();
+        });
+        
+        // Add Property modal functionality (already set up above, but keeping for other interactions)
+        const addPropertyBtn = document.getElementById('addPropertyBtn');
+        if (addPropertyBtn) {
+            addPropertyBtn.addEventListener('click', () => {
+                const addPropertyModal = document.getElementById('addPropertyModal');
+                addPropertyModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        
+        // Setup form validation for add property form
+        setupPropertyFormValidation();
+        
+        // Phone buttons
+        const headerPhoneBtn = document.getElementById('headerPhoneBtn');
+        const ctaPhoneBtn = document.getElementById('ctaPhoneBtn');
+        
+        setupPhoneButton(headerPhoneBtn);
+        setupPhoneButton(ctaPhoneBtn);
+    }
 
+    // Setup form validation for Add Property Form
+    function setupPropertyFormValidation() {
+        const addPropertyForm = document.getElementById('addPropertyForm');
+        const propertyImagesInput = document.getElementById('propertyImages');
+        const fileUploadArea = document.getElementById('fileUploadArea');
+        const filePreview = document.getElementById('filePreview');
+        const forSaleRadio = document.getElementById('forSale');
+        const forRentRadio = document.getElementById('forRent');
+        const rentalFields = document.getElementById('rentalFields');
+        
+        // File upload functionality
+        fileUploadArea.addEventListener('click', () => {
+            propertyImagesInput.click();
+        });
+        
+        propertyImagesInput.addEventListener('change', handleFileSelect);
+        
+        function handleFileSelect(e) {
+            const files = e.target.files;
+            filePreview.innerHTML = '';
+            
+            for (let i = 0; i < Math.min(files.length, 10); i++) {
+                const file = files[i];
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.style.width = '100%';
+                    img.style.height = '100%';
+                    img.style.objectFit = 'cover';
+                    
+                    const previewItem = document.createElement('div');
+                    previewItem.className = 'file-preview-item';
+                    previewItem.appendChild(img);
+                    
+                    const removeBtn = document.createElement('button');
+                    removeBtn.innerHTML = '&times;';
+                    removeBtn.style.position = 'absolute';
+                    removeBtn.style.top = '2px';
+                    removeBtn.style.right = '2px';
+                    removeBtn.style.background = 'rgba(0,0,0,0.5)';
+                    removeBtn.style.color = 'white';
+                    removeBtn.style.border = 'none';
+                    removeBtn.style.borderRadius = '50%';
+                    removeBtn.style.width = '20px';
+                    removeBtn.style.height = '20px';
+                    removeBtn.style.fontSize = '12px';
+                    removeBtn.style.cursor = 'pointer';
+                    
+                    removeBtn.addEventListener('click', (event) => {
+                        event.stopPropagation();
+                        previewItem.remove();
+                    });
+                    
+                    previewItem.appendChild(removeBtn);
+                    filePreview.appendChild(previewItem);
+                };
+                
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        // Toggle rental fields
+        forSaleRadio.addEventListener('change', () => {
+            rentalFields.style.display = 'none';
+        });
+        
+        forRentRadio.addEventListener('change', () => {
+            rentalFields.style.display = 'block';
+        });
+        
+        // Form validation and submission
+        addPropertyForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Reset validation
+            document.querySelectorAll('.form-control, .form-select').forEach(el => {
+                el.classList.remove('is-invalid');
+            });
+            
+            let isValid = true;
+            
+            // Validate required fields
+            const requiredFields = ['propertyType', 'title', 'price', 'location', 'description', 'contactName', 'contactPhone', 'contactEmail'];
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    field.classList.add('is-invalid');
+                    isValid = false;
+                }
+            });
+            
+            // Validate terms agreement
+            const termsAgreement = document.getElementById('termsAgreement');
+            if (!termsAgreement.checked) {
+                termsAgreement.classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Collect form data
+                const formData = {
+                    transactionType: document.querySelector('input[name="transactionType"]:checked').value,
+                    propertyType: document.getElementById('propertyType').value,
+                    title: document.getElementById('title').value,
+                    price: document.getElementById('price').value,
+                    location: document.getElementById('location').value,
+                    bedrooms: document.getElementById('bedrooms').value,
+                    bathrooms: document.getElementById('bathrooms').value,
+                    area: document.getElementById('area').value,
+                    rentalPeriod: document.getElementById('rentalPeriod').value,
+                    securityDeposit: document.getElementById('securityDeposit').value,
+                    description: document.getElementById('description').value,
+                    contactName: document.getElementById('contactName').value,
+                    contactPhone: document.getElementById('contactPhone').value,
+                    contactEmail: document.getElementById('contactEmail').value,
+                    features: Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.nextElementSibling.textContent)
+                };
+                
+                // Simulate form submission
+                const submitBtn = addPropertyForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Submitting...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    // Show success message
+                    alert('Thank you! Your property has been submitted for review. Our team will contact you shortly.');
+                    
+                    // Reset form
+                    addPropertyForm.reset();
+                    filePreview.innerHTML = '';
+                    propertyImagesInput.value = '';
+                    rentalFields.style.display = 'none'; // Hide rental fields
+                    
+                    // Close modal
+                    const addPropertyModal = document.getElementById('addPropertyModal');
+                    addPropertyModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 1500);
+            }
+        });
+        
+        // Initialize form validation on input
+        document.querySelectorAll('.form-control, .form-select').forEach(el => {
+            el.addEventListener('input', function() {
+                this.classList.remove('is-invalid');
+            });
+        });
+    }
+
+    // Initialize the page
+    function init() {
+        renderProperties(getFilteredProperties());
+        updateResultsCounter();
+        setupEventListeners();
+        setupModals(); // This will automatically show the Add Property modal
+        animateStats();
+    }
+
+    // ... rest of your existing JavaScript code remains the same ...
+</script>
 </body>
 
 </html>
