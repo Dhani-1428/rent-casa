@@ -31,6 +31,247 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Custom CSS for Flip Cards -->
+    <style>
+        :root {
+            --dark-green: #064e3b;
+            --medium-green: #047857;
+            --light-green: #d1fae5;
+            --light-bg: #f9fafb;
+        }
+        
+        /* Flip Card Styles */
+        .flip-card-container {
+            perspective: 1000px;
+            height: 400px;
+            margin-bottom: 30px;
+        }
+        
+        .flip-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card-container:hover .flip-card {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .flip-card-front {
+            background-color: var(--dark-green);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .flip-card-front .service-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .flip-card-front .service-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .flip-card-back {
+            background-color: white;
+            color: #333;
+            transform: rotateY(180deg);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .flip-card-back h5 {
+            color: var(--dark-green);
+            margin-bottom: 15px;
+        }
+        
+        .flip-card-back ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .flip-card-back ul li {
+            padding: 5px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .flip-card-back ul li i {
+            color: var(--medium-green);
+        }
+        
+        .flip-card-back .btn {
+            background-color: var(--dark-green);
+            border-color: var(--dark-green);
+            margin-top: 15px;
+            align-self: flex-start;
+        }
+        
+        .flip-card-back .btn:hover {
+            background-color: var(--medium-green);
+            border-color: var(--medium-green);
+        }
+        
+        /* Dark Green Theme Updates */
+        .btn-primary {
+            background-color: var(--dark-green);
+            border-color: var(--dark-green);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--medium-green);
+            border-color: var(--medium-green);
+        }
+        
+        .text-primary {
+            color: var(--dark-green) !important;
+        }
+        
+        .process-icon.bg-primary {
+            background-color: var(--dark-green) !important;
+        }
+        
+        .service-icon.bg-primary {
+            background-color: var(--dark-green) !important;
+        }
+        
+        .border-primary {
+            border-color: var(--dark-green) !important;
+        }
+        
+        .bg-primary {
+            background-color: var(--dark-green) !important;
+        }
+        
+        /* Header Background */
+        .header {
+            background: linear-gradient(to right, var(--dark-green), var(--medium-green));
+            color: white;
+        }
+        
+        .header h1, .header .breadcrumb-item a {
+            color: white !important;
+        }
+        
+        .header .breadcrumb-item.active {
+            color: var(--light-green) !important;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+        }
+        
+        /* Navbar Brand Color */
+        .navbar-brand h1 {
+            color: var(--dark-green) !important;
+        }
+        
+        /* Active Nav Link */
+        .navbar-light .navbar-nav .nav-link.active {
+            color: var(--dark-green) !important;
+            font-weight: 600;
+        }
+        
+        /* Search Section */
+        .container-fluid.bg-primary {
+            background-color: var(--dark-green) !important;
+        }
+        
+        /* Process Section */
+        .process-item h5 {
+            color: var(--dark-green);
+            margin-top: 15px;
+        }
+        
+        /* Why Choose Us Section */
+        .fa-check.text-primary {
+            color: var(--dark-green) !important;
+        }
+        
+        /* Testimonial Section */
+        .testimonial-item {
+            border-top: 3px solid var(--dark-green);
+        }
+        
+        /* FAQ Section */
+        .accordion-button:not(.collapsed) {
+            background-color: var(--light-green);
+            color: var(--dark-green);
+        }
+        
+        .accordion-button:focus {
+            border-color: var(--medium-green);
+            box-shadow: 0 0 0 0.25rem rgba(6, 78, 59, 0.25);
+        }
+        
+        /* Footer Updates */
+        .footer {
+            background-color: #0f172a !important;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .flip-card-container {
+                height: 450px;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -149,7 +390,7 @@
         <!-- Search End -->
 
 
-        <!-- Services Start (Updated with Cards) -->
+        <!-- Services Start (Updated with Flip Cards) -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
@@ -157,123 +398,170 @@
                     <p>At RentCasaPT, we offer a full spectrum of real estate services tailored to meet your specific needs. From buying and selling to property management, we've got you covered.</p>
                 </div>
                 <div class="row g-4">
+                    <!-- Property Sales Flip Card -->
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item bg-light rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden text-center p-4">
-                                <div class="service-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
-                                    <i class="fa fa-home text-white fa-2x"></i>
+                        <div class="flip-card-container">
+                            <div class="flip-card">
+                                <div class="flip-card-front">
+                                    <div class="service-icon">
+                                        <i class="fa fa-home"></i>
+                                    </div>
+                                    <h4 class="mb-3">Property Sales</h4>
+                                    <p>We help you buy or sell residential and commercial properties with expert guidance throughout the entire process.</p>
+                                    <p class="mt-3"><small><em>Hover to see details</em></small></p>
                                 </div>
-                                <h5 class="mb-3">Property Sales</h5>
-                                <p>We help you buy or sell residential and commercial properties with expert guidance throughout the entire process.</p>
-                                <div class="border-top pt-3">
+                                <div class="flip-card-back">
+                                    <h5 class="mb-3">Property Sales</h5>
+                                    <p>Comprehensive sales services including:</p>
                                     <ul class="list-unstyled mb-0">
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Market valuation</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Professional photography</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Strategic marketing</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Negotiation support</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Market valuation</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Professional photography</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Strategic marketing</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Negotiation support</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Closing assistance</li>
                                     </ul>
+                                    <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
                                 </div>
-                                <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Property Rental Flip Card -->
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="flip-card-container">
+                            <div class="flip-card">
+                                <div class="flip-card-front">
+                                    <div class="service-icon">
+                                        <i class="fa fa-key"></i>
+                                    </div>
+                                    <h4 class="mb-3">Property Rental</h4>
+                                    <p>Find your perfect rental property or list your property for rent with our comprehensive rental management services.</p>
+                                    <p class="mt-3"><small><em>Hover to see details</em></small></p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h5 class="mb-3">Property Rental</h5>
+                                    <p>Complete rental solutions including:</p>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Tenant screening</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Lease agreement preparation</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Rent collection</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Property inspections</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Tenant communication</li>
+                                    </ul>
+                                    <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Property Management Flip Card -->
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item bg-light rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden text-center p-4">
-                                <div class="service-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
-                                    <i class="fa fa-key text-white fa-2x"></i>
+                        <div class="flip-card-container">
+                            <div class="flip-card">
+                                <div class="flip-card-front">
+                                    <div class="service-icon">
+                                        <i class="fa fa-building"></i>
+                                    </div>
+                                    <h4 class="mb-3">Property Management</h4>
+                                    <p>Full-service property management for landlords who want peace of mind and maximum returns on their investment.</p>
+                                    <p class="mt-3"><small><em>Hover to see details</em></small></p>
                                 </div>
-                                <h5 class="mb-3">Property Rental</h5>
-                                <p>Find your perfect rental property or list your property for rent with our comprehensive rental management services.</p>
-                                <div class="border-top pt-3">
+                                <div class="flip-card-back">
+                                    <h5 class="mb-3">Property Management</h5>
+                                    <p>Complete management services:</p>
                                     <ul class="list-unstyled mb-0">
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Tenant screening</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Lease agreement preparation</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Rent collection</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Property inspections</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Maintenance coordination</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Financial reporting</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>24/7 emergency support</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Regular property assessments</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Legal compliance</li>
                                     </ul>
+                                    <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
                                 </div>
-                                <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Property Valuation Flip Card -->
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="flip-card-container">
+                            <div class="flip-card">
+                                <div class="flip-card-front">
+                                    <div class="service-icon">
+                                        <i class="fa fa-search"></i>
+                                    </div>
+                                    <h4 class="mb-3">Property Valuation</h4>
+                                    <p>Accurate property valuation services using market data and advanced analytics to determine the true value of your property.</p>
+                                    <p class="mt-3"><small><em>Hover to see details</em></small></p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h5 class="mb-3">Property Valuation</h5>
+                                    <p>Detailed valuation services:</p>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Comparative market analysis</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Investment potential assessment</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Detailed valuation reports</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Rental yield calculations</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Future value projections</li>
+                                    </ul>
+                                    <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Legal & Documentation Flip Card -->
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item bg-light rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden text-center p-4">
-                                <div class="service-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
-                                    <i class="fa fa-building text-white fa-2x"></i>
+                        <div class="flip-card-container">
+                            <div class="flip-card">
+                                <div class="flip-card-front">
+                                    <div class="service-icon">
+                                        <i class="fa fa-file-contract"></i>
+                                    </div>
+                                    <h4 class="mb-3">Legal & Documentation</h4>
+                                    <p>Expert assistance with all real estate legal matters and documentation to ensure smooth and compliant transactions.</p>
+                                    <p class="mt-3"><small><em>Hover to see details</em></small></p>
                                 </div>
-                                <h5 class="mb-3">Property Management</h5>
-                                <p>Full-service property management for landlords who want peace of mind and maximum returns on their investment.</p>
-                                <div class="border-top pt-3">
+                                <div class="flip-card-back">
+                                    <h5 class="mb-3">Legal & Documentation</h5>
+                                    <p>Comprehensive legal support:</p>
                                     <ul class="list-unstyled mb-0">
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Maintenance coordination</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Financial reporting</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>24/7 emergency support</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Regular property assessments</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Contract preparation</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Title verification</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Legal compliance checks</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Notary services coordination</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Tax documentation</li>
                                     </ul>
+                                    <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
                                 </div>
-                                <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item bg-light rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden text-center p-4">
-                                <div class="service-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
-                                    <i class="fa fa-search text-white fa-2x"></i>
+                    
+                    <!-- Consultation & Advisory Flip Card -->
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="flip-card-container">
+                            <div class="flip-card">
+                                <div class="flip-card-front">
+                                    <div class="service-icon">
+                                        <i class="fa fa-handshake"></i>
+                                    </div>
+                                    <h4 class="mb-3">Consultation & Advisory</h4>
+                                    <p>Personalized real estate consultation to help you make informed decisions about buying, selling, or investing.</p>
+                                    <p class="mt-3"><small><em>Hover to see details</em></small></p>
                                 </div>
-                                <h5 class="mb-3">Property Valuation</h5>
-                                <p>Accurate property valuation services using market data and advanced analytics to determine the true value of your property.</p>
-                                <div class="border-top pt-3">
+                                <div class="flip-card-back">
+                                    <h5 class="mb-3">Consultation & Advisory</h5>
+                                    <p>Expert advisory services:</p>
                                     <ul class="list-unstyled mb-0">
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Comparative market analysis</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Investment potential assessment</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Detailed valuation reports</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Rental yield calculations</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Investment strategy development</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Market trend analysis</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Portfolio optimization</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Risk assessment</li>
+                                        <li class="py-1"><i class="fa fa-check me-2"></i>Tax planning advice</li>
                                     </ul>
+                                    <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
                                 </div>
-                                <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item bg-light rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden text-center p-4">
-                                <div class="service-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
-                                    <i class="fa fa-file-contract text-white fa-2x"></i>
-                                </div>
-                                <h5 class="mb-3">Legal & Documentation</h5>
-                                <p>Expert assistance with all real estate legal matters and documentation to ensure smooth and compliant transactions.</p>
-                                <div class="border-top pt-3">
-                                    <ul class="list-unstyled mb-0">
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Contract preparation</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Title verification</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Legal compliance checks</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Notary services coordination</li>
-                                    </ul>
-                                </div>
-                                <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item bg-light rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden text-center p-4">
-                                <div class="service-icon bg-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
-                                    <i class="fa fa-handshake text-white fa-2x"></i>
-                                </div>
-                                <h5 class="mb-3">Consultation & Advisory</h5>
-                                <p>Personalized real estate consultation to help you make informed decisions about buying, selling, or investing.</p>
-                                <div class="border-top pt-3">
-                                    <ul class="list-unstyled mb-0">
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Investment strategy development</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Market trend analysis</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Portfolio optimization</li>
-                                        <li class="py-1"><i class="fa fa-check text-primary me-2"></i>Risk assessment</li>
-                                    </ul>
-                                </div>
-                                <a class="btn btn-primary mt-3" href="contact.html">Learn More</a>
                             </div>
                         </div>
                     </div>
@@ -281,7 +569,6 @@
             </div>
         </div>
         <!-- Services End -->
-
 
         <!-- How We Work Start -->
         <div class="container-xxl py-5">
@@ -332,7 +619,6 @@
         </div>
         <!-- How We Work End -->
 
-
         <!-- Why Choose Us Start -->
         <div class="container-xxl py-5">
             <div class="container">
@@ -357,7 +643,6 @@
             </div>
         </div>
         <!-- Why Choose Us End -->
-
 
         <!-- Testimonial Start -->
         <div class="container-xxl py-5">
@@ -408,7 +693,6 @@
         </div>
         <!-- Testimonial End -->
 
-
         <!-- Call to Action Start -->
         <div class="container-xxl py-5">
             <div class="container">
@@ -432,7 +716,6 @@
             </div>
         </div>
         <!-- Call to Action End -->
-
 
         <!-- FAQ Start -->
         <div class="container-xxl py-5">
@@ -527,7 +810,6 @@
         </div>
         <!-- FAQ End -->
 
-
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
@@ -605,7 +887,6 @@
         </div>
         <!-- Footer End -->
 
-
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
@@ -620,6 +901,33 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    
+    <!-- Optional: Add click functionality for mobile -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click functionality for mobile devices
+            const flipCards = document.querySelectorAll('.flip-card-container');
+            
+            flipCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        this.querySelector('.flip-card').classList.toggle('flipped');
+                    }
+                });
+            });
+            
+            // Add flipped class for mobile
+            const style = document.createElement('style');
+            style.textContent = `
+                @media (max-width: 768px) {
+                    .flip-card.flipped {
+                        transform: rotateY(180deg) !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
 
 </html>
